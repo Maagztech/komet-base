@@ -1,0 +1,27 @@
+.sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f4f4f4;
+    /* Add more styles as needed */
+  }
+  
+  /* Style your links, lists, etc., as needed */
+  .sidebarul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lia {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Add hover effects, active state styles, etc. */
+  .lia:hover {
+    background-color: #ddd;
+  }
