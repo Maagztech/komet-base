@@ -9,7 +9,7 @@ const SmallCards = () => {
           <h5 className="font-bold">$33,789,90</h5>
         </div>
         <div className="flex items-end ml-[20px]">
-          <div class="bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
+          <div className="bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
             All Time
           </div>
         </div>
@@ -20,7 +20,7 @@ const SmallCards = () => {
           <h5 className="font-bold">340,716</h5>
         </div>
         <div className="flex  items-end ml-[20px]">
-          <div class="bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
+          <div className="bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
             All Time
           </div>
         </div>
@@ -31,7 +31,7 @@ const SmallCards = () => {
           <h5 className="font-bold">$33,789,90</h5>
         </div>
         <div className="flex  items-end ml-[20px]">
-          <div class="bg-red-200 px-2 text-red-700 py-0 rounded-full">
+          <div className="bg-red-200 px-2 text-red-700 py-0 rounded-full">
             24h Stats
           </div>
         </div>
@@ -42,7 +42,7 @@ const SmallCards = () => {
           <h5 className="font-bold">340,716</h5>
         </div>
         <div className="flex  items-end ml-[20px]">
-          <div class="bg-red-200 px-2 flex items-center text-red-700 py-0 rounded-full">
+          <div className="bg-red-200 px-2 flex items-center text-red-700 py-0 rounded-full">
             24h Stats
           </div>
         </div>

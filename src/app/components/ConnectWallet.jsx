@@ -4,7 +4,7 @@ const ConnectWallet = () => {
   return (
     <div>
       <div className="w-full flex justify-end bg-slate-50">
-        <button class="bg-red-500 hover:bg-red-700 text-white font-bold my-3 py-2 px-4 rounded mr-[15px]">
+        <button className="bg-red-500 hover:bg-red-700 text-white font-bold my-3 py-2 px-4 rounded mr-[15px]">
           Connect Wallet
         </button>
       </div>
