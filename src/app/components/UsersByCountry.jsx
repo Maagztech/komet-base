@@ -30,10 +30,21 @@ const CountryPercentageChart = () => {
     indexAxis: "y", // Use a horizontal bar chart
     scales: {
       x: {
-        stacked: true, // Stack the percentage and remaining datasets
+        stacked: true,
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of x-axis grid lines
+        },
+        ticks: {
+          callback: (value) => `${value}%`, // Display percentages on the X-axis
+          beginAtZero: true,
+          max: 100, // Ensure the scale goes from 0 to 100
+        },
       },
       y: {
         stacked: true,
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+        },
       },
     },
     plugins: {
@@ -47,7 +58,7 @@ const CountryPercentageChart = () => {
     <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-1/3">
       <p className="font-semibold">Users By Country</p>
       <p className="text-sm text-gray-400 mb-[10px]">12.4K</p>
-      <Bar data={data} options={options} height={300}/>
+      <Bar data={data} options={options} height={300} />
     </div>
   );
 };

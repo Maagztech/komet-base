@@ -1,3 +1,5 @@
+
+
 "use client";
 import React from "react";
 import { Line } from "react-chartjs-2";
@@ -6,30 +8,30 @@ import "chart.js/auto";
 const ContinuousGraph = () => {
   const data = {
     labels: [
-      "January 2023",
-      "February 2023",
-      "March 2023",
-      "April 2023",
-      "May 2023",
-      "June2023",
-      "July 2023",
+      "Jun 2023",
+      "Jul 2023",
+      "Aug 2023",
+      "Sep 2023",
+      "Oct 2023",
+      "Nov 2023",
+      "Dec 2023",
     ],
     datasets: [
       {
-        label: "Sales",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: "Dataset 1",
+        data: [100000, 200000, 150000, 250000, 200000, 350000,100000],
         fill: true,
-        backgroundColor: "rgba(255, 0, 0, 0.7)", // Light green fill
-        borderColor: "rgb(255, 0, 0)", // Line color
-        tension: 0.1,
+        backgroundColor: "rgba(54, 162, 235, 0.7)", // Light blue fill
+        borderColor: "rgb(54, 162, 235)", // Blue line
+        tension: 0.4,
       },
       {
-        label: "Profit",
-        data: [28, 48, 40, 19, 86, 27, 90],
+        label: "Dataset 2",
+        data: [80000, 340000, 120000, 215000, 280000, 320000,300000],
         fill: true,
-        backgroundColor: "rgba(0, 0, 255, 0.7)", // Light red fill
-        borderColor: "rgb(0, 0, 255)", // Line color
-        tension: 0.1,
+        backgroundColor: "rgba(255, 99, 132, 0.7)", // Light red fill
+        borderColor: "rgb(255, 99, 132)", // Red line
+        tension: 0.4,
       },
     ],
   };
@@ -39,30 +41,35 @@ const ContinuousGraph = () => {
       x: {
         title: {
           display: true,
-          text: 'Week Starting',
-          color: '#000000',
+          text: "Week Starting",
+          color: "#000000",
           font: {
-            size: 16
+            size: 16,
           },
-          padding: {top: 20, left: 0, right: 0, bottom: 0}
-        }
+          padding: { top: 20, left: 0, right: 0, bottom: 0 },
+        },
       },
       y: {
         beginAtZero: true,
         title: {
           display: true,
-          text: 'Cumulative Sales',
-          color: '#000000',
+          text: "Cumulative Sales",
+          color: "#000000",
           font: {
-            size: 16
+            size: 16,
           },
-          padding: {top: 30, left: 0, right: 0, bottom: 0}
+          padding: { top: 30, left: 0, right: 0, bottom: 0 },
         },
-
-      }
-    }
+        ticks: {
+          // Convert Y-axis values to 'K' format and restrict to specific values
+          callback: (value) => `${value / 1000}K`,
+          beginAtZero: true,
+          stepSize: 100000, // Step size of 100K
+          max: 400000, // Maximum value of 400K
+        }
+      },
+    },
   };
-
 
   return (
     <div className="bg-slate-50 ml-[20px] my-[30px] p-[20px] rounded-md pb-[40px]">
