@@ -18,7 +18,7 @@ const ContinuousGraph = () => {
     ],
     datasets: [
       {
-        label: "Dataset 1",
+        label: "Profit",
         data: [100000, 200000, 150000, 250000, 200000, 350000,100000],
         fill: true,
         backgroundColor: "rgba(54, 162, 235, 0.7)", // Light blue fill
@@ -26,7 +26,7 @@ const ContinuousGraph = () => {
         tension: 0.4,
       },
       {
-        label: "Dataset 2",
+        label: "Sales",
         data: [80000, 340000, 120000, 215000, 280000, 320000,300000],
         fill: true,
         backgroundColor: "rgba(255, 99, 132, 0.7)", // Light red fill

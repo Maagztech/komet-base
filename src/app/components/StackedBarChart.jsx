@@ -37,6 +37,13 @@ const StackedBarChart = () => {
             size: 16,
           },
         },
+        ticks: {
+          // Convert Y-axis values to 'K' format and restrict to specific values
+          callback: (value) => `${value / 1000}K`,
+          beginAtZero: true,
+          stepSize: 20000, // Step size of 100K
+          max: 100000, // Maximum value of 400K
+        }
       },
     },
   };
