@@ -21,7 +21,7 @@ const MultiLineGraph = () => {
         fill: true,
         backgroundColor: "rgba(54, 162, 235, 0.2)", // Light blue fill
         borderColor: "rgb(54, 162, 235)", // Blue line
-        tension: 0.4,
+        tension: 0.1,
       },
       {
         label: "Komet",
@@ -29,7 +29,7 @@ const MultiLineGraph = () => {
         fill: true,
         backgroundColor: "rgba(255, 99, 132, 0.2)", // Light red fill
         borderColor: "rgb(255, 99, 132)", // Red line
-        tension: 0.4,
+        tension: 0.1,
       },
       {
         label: "MagicEden",
@@ -37,7 +37,7 @@ const MultiLineGraph = () => {
         fill: true,
         backgroundColor: "rgba(255, 206, 86, 0.2)", // Light yellow fill
         borderColor: "rgb(255, 206, 86)", // Yellow line
-        tension: 0.4,
+        tension: 0.1,
       },
     ],
   };
