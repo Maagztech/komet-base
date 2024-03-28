@@ -45,6 +45,9 @@ const MultiLineGraph = () => {
   const options = {
     scales: {
       y: {
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+        },
         beginAtZero: true,
         title: {
           display: true,
@@ -59,6 +62,11 @@ const MultiLineGraph = () => {
           beginAtZero: true,
           max: 100,
           stepSize: 20,
+        },
+      },
+      x: {
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
         },
       },
     },

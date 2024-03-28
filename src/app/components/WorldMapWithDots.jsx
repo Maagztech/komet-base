@@ -75,7 +75,7 @@ const WorldMapWithDots = () => {
         center={[20, 0]}
         zoom={2}
         scrollWheelZoom={true}
-        style={{ height: "500px", width: "100%" }}
+        style={{ height: "460px", width: "100%" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

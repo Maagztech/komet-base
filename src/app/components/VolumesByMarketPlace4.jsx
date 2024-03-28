@@ -40,12 +40,18 @@ const VolumesByMarketPlace4 = () => {
     scales: {
       x: {
         stacked: true,
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+        },
       },
       y: {
         stacked: true,
         ticks: {
           callback: (value) => `${value}K`,
           beginAtZero: true,
+        },
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
         },
       },
     },
@@ -62,7 +68,7 @@ const VolumesByMarketPlace4 = () => {
       <p className="text-sm text-gray-400 mb-[10px]">
         <span className="text-green-700">+3,4% </span>Past Month
       </p>
-      <Bar data={data} options={options} height={300}/>
+      <Bar data={data} options={options} height={300} />
     </div>
   );
 };

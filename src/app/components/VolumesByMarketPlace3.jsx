@@ -60,6 +60,14 @@ const VolumesByMarketPlace3 = () => {
           max: 100,
           stepSize: 20,
         },
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+        },
+      },
+      x: {
+        grid: {
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+        },
       },
     },
     plugins: {

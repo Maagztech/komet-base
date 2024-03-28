@@ -3,7 +3,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
 
-const CountryPercentageChart = () => {
+const UserLast30Days = () => {
   const data = {
     labels: ["India", "United Kingdom", "Canada", "Australia", "Spain"],
     datasets: [
@@ -56,7 +56,7 @@ const CountryPercentageChart = () => {
 
   return (
     <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-1/3">
-      <p className="font-semibold">Users By Country</p>
+      <p className="font-semibold">Users in Last 30 Days</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
           <p className=" text-black my-[10px] text-2xl">12.4K</p>
@@ -116,9 +116,11 @@ const CountryPercentageChart = () => {
           </div>
         </div>
       </div>
+      <p className="text-[10px] text-gray-400">USERS PER MINUTE</p>
+      <p></p>
       <Bar data={data} options={options} height={300} />
     </div>
   );
 };
 
-export default CountryPercentageChart;
+export default UserLast30Days;

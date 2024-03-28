@@ -21,7 +21,7 @@ const ContinuousGraph = () => {
         label: "Profit",
         data: [100000, 200000, 150000, 250000, 200000, 350000,100000],
         fill: true,
-        backgroundColor: "rgba(54, 162, 235, 0.7)", // Light blue fill
+        backgroundColor: "rgba(255,255,255, 0.3)", // Light blue fill
         borderColor: "rgb(54, 162, 235)", // Blue line
         tension: 0.4,
       },
@@ -29,7 +29,7 @@ const ContinuousGraph = () => {
         label: "Sales",
         data: [80000, 340000, 120000, 215000, 280000, 320000,300000],
         fill: true,
-        backgroundColor: "rgba(255, 99, 132, 0.7)", // Light red fill
+        backgroundColor: "rgba(255, 255, 255, 0.3)", // Light red fill
         borderColor: "rgb(255, 99, 132)", // Red line
         tension: 0.4,
       },
@@ -48,6 +48,9 @@ const ContinuousGraph = () => {
           },
           padding: { top: 20, left: 0, right: 0, bottom: 0 },
         },
+        grid: {
+          color: 'rgba(0, 0, 0, 0)', // Decrease opacity of X-axis grid lines
+        },
       },
       y: {
         beginAtZero: true,
@@ -59,6 +62,9 @@ const ContinuousGraph = () => {
             size: 16,
           },
           padding: { top: 30, left: 0, right: 0, bottom: 0 },
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0)', // Decrease opacity of X-axis grid lines
         },
         ticks: {
           // Convert Y-axis values to 'K' format and restrict to specific values
@@ -72,8 +78,8 @@ const ContinuousGraph = () => {
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] my-[30px] p-[20px] rounded-md pb-[40px]">
-      <p className="font-semibold">Cummulative Sales Stats</p>
+    <div className="bg-slate-50 ml-[20px] my-[30px] p-[20px] rounded-md pb-[40px] w-2/3">
+      <p className="font-semibold">User activity over time</p>
       <Line data={data} options={options} />
     </div>
   );
