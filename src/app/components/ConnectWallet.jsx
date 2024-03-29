@@ -1,4 +1,5 @@
 import React from "react";
+import Export from "./Export";
 
 const ConnectWallet = () => {
   return (
@@ -8,7 +9,12 @@ const ConnectWallet = () => {
           Connect Wallet
         </button>
       </div>
-      <p className="mt-[40px] mb-[20px] ml-[20px]">Dashboard | <span className="text-red-700">Launch_</span></p>
+      <div className="flex justify-between">
+        <p className="mt-[40px] mb-[20px] ml-[20px]">
+          Dashboard | <span className="text-red-700">Launch_</span>
+        </p>
+        <Export />
+      </div>
     </div>
   );
 };

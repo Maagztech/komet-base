@@ -29,7 +29,7 @@ const WeekdayBarGraph = () => {
           "rgba(199, 199, 199, 1)",
         ],
         borderWidth: 1,
-        barThickness: 8,
+        barThickness: 12,
       },
     ],
   };
