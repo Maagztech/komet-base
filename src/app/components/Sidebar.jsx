@@ -23,8 +23,29 @@ const Sidebar = () => {
       </div>
       <nav className="mt-[5 0px]">
         <ul className="sidebarul text-black">
-          <li className="my-[30px] ml-[3px]">
+          <li className="my-[30px]  ml-[6px]">
             <a className="lia flex" href="/">
+              <svg
+                width="16"
+                height="21"
+                viewBox="0 0 16 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 19.9023C1 16.0363 4.13401 12.9023 8 12.9023C11.866 12.9023 15 16.0363 15 19.9023M12 5.90234C12 8.11148 10.2091 9.90234 8 9.90234C5.79086 9.90234 4 8.11148 4 5.90234C4 3.6932 5.79086 1.90234 8 1.90234C10.2091 1.90234 12 3.6932 12 5.90234Z"
+                  stroke="#C3CED2"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p>&nbsp;&nbsp;Embed</p>
+            </a>
+          </li>
+
+          <li className="my-[30px] text-gray-600 ml-[3px]">
+            <a className="lia flex" href="https://dropzone.komet.me/dropz">
               <svg
                 width="22"
                 height="22"
@@ -103,9 +124,8 @@ const Sidebar = () => {
             </a>
           </li>
 
-
           <li className="my-[30px] text-gray-600">
-            <a className="lia flex" href="/">
+            <a className="lia flex" href="https://komet.me/launch_">
               <svg
                 width="24"
                 height="25"
@@ -123,6 +143,27 @@ const Sidebar = () => {
           </li>
 
           <li className="my-[30px] text-gray-600 ml-[6px]">
+            <a className="lia flex" href="https://dropzone.komet.me/">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.9521 13.2773L16.0684 16.4878M7.37057 13.2773L4.25423 16.4878M4.25423 4.31693L7.37057 7.52734M16.0684 4.31693L12.9521 7.52734M13.8823 10.4023C13.8823 12.5194 12.2164 14.2357 10.1613 14.2357C8.10626 14.2357 6.44031 12.5194 6.44031 10.4023C6.44031 8.28525 8.10626 6.56901 10.1613 6.56901C12.2164 6.56901 13.8823 8.28525 13.8823 10.4023ZM18.5336 10.4023C18.5336 15.1658 14.7852 19.0273 10.1613 19.0273C5.53745 19.0273 1.78906 15.1658 1.78906 10.4023C1.78906 5.63889 5.53745 1.77734 10.1613 1.77734C14.7852 1.77734 18.5336 5.63889 18.5336 10.4023Z"
+                  stroke="#C3CED2"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p>&nbsp;&nbsp;Dropzone</p>
+            </a>
+          </li>
+
+          {/* <li className="my-[30px] text-gray-600 ml-[6px]">
             <a className="lia flex" href="/">
               <svg
                 width="16"
@@ -257,7 +298,7 @@ const Sidebar = () => {
               </svg>
               <p>&nbsp;&nbsp;FAQ</p>
             </a>
-          </li>
+          </li> */}
           {/* Add more navigation links as needed */}
         </ul>
       </nav>
