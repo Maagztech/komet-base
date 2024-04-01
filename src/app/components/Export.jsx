@@ -28,39 +28,42 @@ const Export = () => {
     fetchData().catch(console.error);
   }, []);
 
-  // const filterDataByDate = (data, start, end) => {
-  //   return data.filter((item) => {
-  //     const createdAt = new Date(item.createdAt);
-  //     const startDate = new Date(start);
-  //     const endDate = new Date(end);
-  //     return createdAt >= startDate && createdAt <= endDate;
-  //   });
-  // };
+  const filterDataByDate = (data, start, end) => {
+    return data.filter((item) => {
+      const createdAt = new Date(item.createdAt);
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      return createdAt >= startDate && createdAt <= endDate;
+    });
+  };
 
-  // const convertToCSV = (data) => {
-  //   const headers = Object.keys(data[0]).join(",");
-  //   const rows = data.map((obj) =>
-  //     Object.values(obj)
-  //       .map((value) =>
-  //         Array.isArray(value) ? `"${value.join(";")}"` : `"${value}"`
-  //       )
-  //       .join(",")
-  //   );
-  //   return [headers, ...rows].join("\n");
-  // };
+  const convertToCSV = (data) => {
+    if (data.length === 0) {
+      return "";
+    }
+    const headers = Object.keys(data[0]).join(",");
+    const rows = data.map((obj) =>
+      Object.values(obj)
+        .map((value) =>
+          Array.isArray(value) ? `"${value.join(";")}"` : `"${value}"`
+        )
+        .join(",")
+    );
+    return [headers, ...rows].join("\n");
+  };
 
-  // const downloadCSV = () => {
-  //   const filteredData = filterDataByDate(users, startDate, endDate);
-  //   const csvData = convertToCSV(filteredData);
-  //   const blob = new Blob([csvData], { type: "text/csv" });
-  //   const url = URL.createObjectURL(blob);
-  //   const a = document.createElement("a");
-  //   a.href = url;
-  //   a.download = "data.csv";
-  //   document.body.appendChild(a);
-  //   a.click();
-  //   document.body.removeChild(a);
-  // };
+  const downloadCSV = () => {
+    const filteredData = filterDataByDate(users, startDate, endDate);
+    const csvData = convertToCSV(filteredData);
+    const blob = new Blob([csvData], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "data.csv";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
 
   return (
     <div className="mt-[40px] mb-[20px] flex gap-2 items-center justify-center">
@@ -90,7 +93,7 @@ const Export = () => {
         />
       </div>
       <div
-        // onClick={downloadCSV}
+        onClick={downloadCSV}
         className="flex gap-1 items-center py-2 px-2 rounded bg-black text-white cursor-pointer"
       >
         Export

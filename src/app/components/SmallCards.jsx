@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useContext } from "react";
 import { DataContext } from "@/context/data";
 const SmallCards = () => {
@@ -52,7 +52,7 @@ const SmallCards = () => {
           </div>
         </div>
       </div> */}
-      <div className="flex bg-slate-50 p-[15px] rounded-md mr-[30px]">
+      {/* <div className="flex bg-slate-50 p-[15px] rounded-md mr-[30px]">
         <div>
           <p className="whitespace-nowrap text-gray-500">Total Sale Volume</p>
           <h5 className="font-bold">$33,789,90</h5>
@@ -62,9 +62,9 @@ const SmallCards = () => {
             24h Stats
           </div>
         </div>
-      </div>
-      <div className="flex bg-slate-50 p-[15px] rounded-md  mr-[30px]">
-        <div>
+      </div> */}
+      {/*<div className="flex bg-slate-50 p-[15px] rounded-md  mr-[30px]">
+         <div>
           <p className="whitespace-nowrap text-gray-500">Total Sales</p>
           <h5 className="font-bold">340,716</h5>
         </div>
@@ -73,7 +73,7 @@ const SmallCards = () => {
             24h Stats
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
