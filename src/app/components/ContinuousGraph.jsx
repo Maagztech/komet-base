@@ -1,5 +1,3 @@
-
-
 "use client";
 import React from "react";
 import { Line } from "react-chartjs-2";
@@ -19,7 +17,7 @@ const ContinuousGraph = () => {
     datasets: [
       {
         label: "Profit",
-        data: [100000, 200000, 150000, 250000, 200000, 350000,100000],
+        data: [100000, 200000, 150000, 250000, 200000, 350000, 100000],
         fill: true,
         backgroundColor: "rgba(255,255,255, 0.3)", // Light blue fill
         borderColor: "rgb(54, 162, 235)", // Blue line
@@ -27,7 +25,7 @@ const ContinuousGraph = () => {
       },
       {
         label: "Sales",
-        data: [80000, 340000, 120000, 215000, 280000, 320000,300000],
+        data: [80000, 340000, 120000, 215000, 280000, 320000, 300000],
         fill: true,
         backgroundColor: "rgba(255, 255, 255, 0.3)", // Light red fill
         borderColor: "rgb(255, 99, 132)", // Red line
@@ -49,7 +47,7 @@ const ContinuousGraph = () => {
           padding: { top: 20, left: 0, right: 0, bottom: 0 },
         },
         grid: {
-          color: 'rgba(0, 0, 0, 0)', // Decrease opacity of X-axis grid lines
+          color: "rgba(0, 0, 0, 0)", // Decrease opacity of X-axis grid lines
         },
       },
       y: {
@@ -64,7 +62,7 @@ const ContinuousGraph = () => {
           padding: { top: 30, left: 0, right: 0, bottom: 0 },
         },
         grid: {
-          color: 'rgba(0, 0, 0, 0)', // Decrease opacity of X-axis grid lines
+          color: "rgba(0, 0, 0, 0)",
         },
         ticks: {
           // Convert Y-axis values to 'K' format and restrict to specific values
@@ -72,7 +70,7 @@ const ContinuousGraph = () => {
           beginAtZero: true,
           stepSize: 100000, // Step size of 100K
           max: 400000, // Maximum value of 400K
-        }
+        },
       },
     },
   };

@@ -1,34 +1,35 @@
 "use client";
 
-import React from 'react'
-import { useAccount } from 'wagmi';
-import ConnectWallet from './ConnectWallet';
-import ContinuousGraph from './ContinuousGraph';
-import Sidebar from './Sidebar';
+import React from "react";
+import { useAccount } from "wagmi";
+import ConnectWallet from "./ConnectWallet";
+import ContinuousGraph from "./ContinuousGraph";
+import Sidebar from "./Sidebar";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import SmallCards from './SmallCards';
-
+import SmallCards from "./SmallCards";
+import WalletCreationData from "./WalletCreationData";
 export default function InitialCheck() {
-    const {address}=useAccount()
-    //console.log(wagmi) 
-    const { open } = useWeb3Modal();
+  const { address } = useAccount();
+  //console.log(wagmi)
+  const { open } = useWeb3Modal();
 
   return (
     <>
-    {address?   <div className="flex max-h-screen">
-        <Sidebar />
+      {address ? (
+        <div className="flex max-h-screen">
+          <Sidebar />
+          <div className="flex-1 overflow-y-scroll">
+            <ConnectWallet />
+            {/* {address ? ( */}
+            <div>
+              <SmallCards />
+              <div className="flex">
+                {/* <ContinuousGraph /> */}
+                <WalletCreationData />
 
-        <div className="flex-1 overflow-y-scroll">
-          <ConnectWallet />
-          {/* {address ? ( */}
-          <div>
-            <SmallCards />
-            <div className="flex">
-              <ContinuousGraph />
-              
-              {/* <WeekdayBarGraph /> */}
-            </div>
-            {/* <div className="flex">
+                {/* <WeekdayBarGraph /> */}
+              </div>
+              {/* <div className="flex">
               <UserLast30Days />
             </div>
             <div className="flex">
@@ -43,18 +44,25 @@ export default function InitialCheck() {
               <CountryUsersPercentageChart />
               <MapChart />
             </div> */}
-          </div>
-          {/* ) : (<div>
+            </div>
+            {/* ) : (<div>
             Please connect wallet to see your dashboard.
           </div>)} */}
+          </div>
         </div>
-      </div>: <div className='w-screen h-screen flex flex-col items-center justify-center'>
-      <button onClick={() => open()} className="bg-red-500 hover:bg-red-700 text-white font-bold my-8 py-2 px-4 rounded mr-[15px]">
-          Connect Wallet
-        </button>
-        <div className='my-4 text-[black] text-bold'>Please connect wallet to continue</div>
-        </div>}
+      ) : (
+        <div className="w-screen h-screen flex flex-col items-center justify-center">
+          <button
+            onClick={() => open()}
+            className="bg-red-500 hover:bg-red-700 text-white font-bold my-8 py-2 px-4 rounded mr-[15px]"
+          >
+            Connect Wallet
+          </button>
+          <div className="my-4 text-[black] text-bold">
+            Please connect wallet to continue
+          </div>
+        </div>
+      )}
     </>
-   
-  )
+  );
 }

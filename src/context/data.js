@@ -25,11 +25,6 @@ export const DataContextProvider = ({ children }) => {
     const [totalUsers, setTotalUsers] = useState(0);
     const [givenDateUsers, setGivenDateUsers] = useState(0);
 
-
-
-
-
-
     const FindDateSpecificUsersCount = async () => {
         try {
             let count = 0;
