@@ -73,16 +73,16 @@ const UserLast30Days = () => {
                 <path
                   d="M2.19401 7.47827L7.52734 2.14494"
                   stroke="#14CA74"
-                  stroke-width="0.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="0.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M7.52734 7.17334V2.14506H2.49906"
                   stroke="#14CA74"
-                  stroke-width="0.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="0.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -101,16 +101,16 @@ const UserLast30Days = () => {
               <path
                 d="M5.19531 0.811523V10.8115"
                 stroke="white"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M1.10156 6.71973L5.19247 10.8106L9.28338 6.71973"
                 stroke="white"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>

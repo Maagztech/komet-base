@@ -89,16 +89,16 @@ const WeekdayBarGraph = () => {
               <path
                 d="M2.19401 7.47827L7.52734 2.14494"
                 stroke="#14CA74"
-                stroke-width="0.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="0.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M7.52734 7.17334V2.14506H2.49906"
                 stroke="#14CA74"
-                stroke-width="0.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="0.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>
