@@ -13,7 +13,7 @@ import WeekdayBarGraph from "./components/User Visits";
 import UserLast30Days from "./components/UserLast30Days";
 import { useAccount } from 'wagmi'
 export default function Home() {
-  // const { address } = useAccount()
+  const { address } = useAccount()
   return (
     <main>
 
@@ -22,15 +22,14 @@ export default function Home() {
 
         <div className="flex-1 overflow-y-scroll">
           <ConnectWallet />
-          {/* {address ? ( */}
-          <div>
-            <SmallCards />
-            <div className="flex">
-              <ContinuousGraph />
-              
-              {/* <WeekdayBarGraph /> */}
-            </div>
-            {/* <div className="flex">
+          {address ? (
+            <div>
+              <SmallCards />
+              <div className="flex">
+                <ContinuousGraph />
+                {/* <WeekdayBarGraph /> */}
+              </div>
+              {/* <div className="flex">
               <UserLast30Days />
             </div>
             <div className="flex">
@@ -45,10 +44,10 @@ export default function Home() {
               <CountryUsersPercentageChart />
               <MapChart />
             </div> */}
-          </div>
-          {/* ) : (<div>
+            </div>
+          ) : (<div>
             Please connect wallet to see your dashboard.
-          </div>)} */}
+          </div>)}
         </div>
       </div>
     </main >
