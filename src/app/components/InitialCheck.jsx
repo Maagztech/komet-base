@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import SmallCards from "./SmallCards";
 import WalletCreationData from "./WalletCreationData";
+import DesktopAlert from "./Alert";
 export default function InitialCheck() {
   const { address } = useAccount();
   //console.log(wagmi)
@@ -63,6 +64,7 @@ export default function InitialCheck() {
           </div>
         </div>
       )}
+      <DesktopAlert />
     </>
   );
 }
