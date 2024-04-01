@@ -12,45 +12,14 @@ import MapChart from "./components/WorldMapWithDots";
 import WeekdayBarGraph from "./components/User Visits";
 import UserLast30Days from "./components/UserLast30Days";
 import { useAccount } from 'wagmi'
+import InitialCheck from "./components/InitialCheck";
 export default function Home() {
+  
   // const { address } = useAccount()
   return (
     <main>
-
-      <div className="flex max-h-screen">
-        <Sidebar />
-
-        <div className="flex-1 overflow-y-scroll">
-          <ConnectWallet />
-          {/* {address ? ( */}
-          <div>
-            <SmallCards />
-            <div className="flex">
-              <ContinuousGraph />
-              
-              {/* <WeekdayBarGraph /> */}
-            </div>
-            {/* <div className="flex">
-              <UserLast30Days />
-            </div>
-            <div className="flex">
-              <MultiLineGraph />
-              <VolumesByMarketPlace />
-            </div>
-            <div className="flex">
-              <VolumesByMarketPlace3 />
-              <VolumesByMarketPlace4 />
-            </div>
-            <div className="flex">
-              <CountryUsersPercentageChart />
-              <MapChart />
-            </div> */}
-          </div>
-          {/* ) : (<div>
-            Please connect wallet to see your dashboard.
-          </div>)} */}
-        </div>
-      </div>
+      <InitialCheck/>
+   
     </main >
   );
 }
