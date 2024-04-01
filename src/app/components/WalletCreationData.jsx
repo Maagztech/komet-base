@@ -13,27 +13,13 @@ const WalletCreationData = () => {
   });
 
   useEffect(() => {
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
     const countMap = {};
 
     users.forEach((item) => {
       const date = new Date(item.createdAt);
-      const monthYearKey = `${
-        monthNames[date.getMonth()]
-      }-${date.getFullYear()}`;
+      const monthYearKey = `${date.toLocaleString("default", {
+        month: "short",
+      })}-${date.getFullYear()}`;
 
       if (!countMap[monthYearKey]) {
         countMap[monthYearKey] = 0;
@@ -61,7 +47,7 @@ const WalletCreationData = () => {
         fill: true,
         backgroundColor: "rgba(255,255,255, 0.3)", // Light blue fill
         borderColor: "rgb(54, 162, 235)", // Blue line
-        tension: 0.4,
+        tension: 0.3,
       },
       {
         label: "Aggregated Data",
@@ -69,7 +55,7 @@ const WalletCreationData = () => {
         fill: true,
         backgroundColor: "rgba(255, 255, 255, 0.3)", // Light red fill
         borderColor: "rgb(255, 99, 132)", // Red line
-        tension: 0.4,
+        tension: 0.3,
       },
     ],
   };
