@@ -2,8 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { DataContext } from "@/context/data";
 import axios from "axios";
 const Export = () => {
-  
-
   const {
     startDate,
     setStartDate,
@@ -13,10 +11,10 @@ const Export = () => {
     users,
     setTotalUsers,
     FindDateSpecificUsersCount,
-    setWalletAddress,
-    groupName
+    walletAddress,
+    groupName,
   } = useContext(DataContext);
-  
+
   FindDateSpecificUsersCount();
   useEffect(() => {
     FindDateSpecificUsersCount();
@@ -31,7 +29,7 @@ const Export = () => {
       setTotalUsers(response.data?.[groupName].length);
     };
     fetchData().catch(console.error);
-  }, [groupName]);
+  }, [groupName, walletAddress]);
 
   const filterDataByDate = (data, start, end) => {
     return data.filter((item) => {

@@ -28,6 +28,7 @@ export const DataContextProvider = ({ children }) => {
     const [showInvite, setShowInvite] = useState(false);
     const [walletaddress, setWalletAddress] = useState(address);
     const [groupName, setGroupName] = useState("");
+    const [groupId, setGroupId] = useState();
     const FindDateSpecificUsersCount = async () => {
         try {
             let count = 0;
@@ -45,14 +46,22 @@ export const DataContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        setWalletAddress(address);
+    }, [address])
+    useEffect(() => {
         const fetchData = async () => {
             if (!walletaddress) return;
+            setShowData(false);
+            setShowInvite(false);
+            setGroupName("");
+            setGroupId(undefined);
             const checkAdmin = await axios.get(`https://prod-api.komet.me/invite/public/check-admin/${walletaddress}`);
             const checkInvitee = await axios.get(`https://prod-api.komet.me/invite/public/check-invite/${walletaddress}`);
             if (checkAdmin.data.admin) {
                 setShowData(true);
                 setShowInvite(true);
                 setGroupName(checkAdmin.data.groupName);
+                setGroupId(checkAdmin.data.id);
             }
             else if (checkInvitee.data.admin) {
                 setShowData(true);
@@ -74,6 +83,7 @@ export const DataContextProvider = ({ children }) => {
             walletaddress, setWalletAddress,
             showData, showInvite,
             groupName, setGroupName,
+            groupId, setGroupId,
             FindDateSpecificUsersCount
         }}>
             {children}

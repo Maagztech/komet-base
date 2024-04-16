@@ -1,19 +1,31 @@
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import axios from "axios";
+import { DataContext } from "@/context/data";
 export default function TeamMemberAdd({ isOpen, onClose }) {
+  const { groupId } = useContext(DataContext);
+  console.log("groupId", groupId);
   const [walletAddresses, setWalletAddresses] = useState("");
 
   const handleWalletAddressesChange = (event) => {
     setWalletAddresses(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const addresses = walletAddresses
       .split(",")
       .map((address) => address.trim());
     if (addresses[0] !== "") {
       console.log("Wallet Addresses:", addresses);
+      const data = {
+        groupId: groupId,
+        invitee: addresses,
+      };
+      const response = await axios.post(
+        "https://prod-api.komet.me/invite/public/add-invitee",
+        data
+      );
+      console.log(response);
     }
     setWalletAddresses("");
   };

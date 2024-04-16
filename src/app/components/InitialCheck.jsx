@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { useAccount } from "wagmi";
 import { DataContext } from "@/context/data";
 import ConnectWallet from "./ConnectWallet";
@@ -14,7 +14,7 @@ export default function InitialCheck() {
   const { address } = useAccount();
   //console.log(wagmi)
   const { open } = useWeb3Modal();
-
+  
   return (
     <>
       {address ? (
