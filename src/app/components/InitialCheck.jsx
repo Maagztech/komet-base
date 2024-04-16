@@ -1,15 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { useAccount } from "wagmi";
+import { DataContext } from "@/context/data";
 import ConnectWallet from "./ConnectWallet";
-import ContinuousGraph from "./ContinuousGraph";
 import Sidebar from "./Sidebar";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import SmallCards from "./SmallCards";
 import WalletCreationData from "./WalletCreationData";
 import DesktopAlert from "./Alert";
 export default function InitialCheck() {
+  const { showData } = useContext(DataContext);
   const { address } = useAccount();
   //console.log(wagmi)
   const { open } = useWeb3Modal();
@@ -22,15 +23,16 @@ export default function InitialCheck() {
           <div className="flex-1 overflow-y-scroll">
             <ConnectWallet />
             {/* {address ? ( */}
-            <div>
-              <SmallCards />
-              <div className="flex">
-                {/* <ContinuousGraph /> */}
-                <WalletCreationData />
+            {showData ? (
+              <div>
+                <SmallCards />
+                <div className="flex">
+                  {/* <ContinuousGraph /> */}
+                  <WalletCreationData />
 
-                {/* <WeekdayBarGraph /> */}
-              </div>
-              {/* <div className="flex">
+                  {/* <WeekdayBarGraph /> */}
+                </div>
+                {/* <div className="flex">
               <UserLast30Days />
             </div>
             <div className="flex">
@@ -45,7 +47,14 @@ export default function InitialCheck() {
               <CountryUsersPercentageChart />
               <MapChart />
             </div> */}
-            </div>
+              </div>
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center">
+                <div className="my-4 text-[black] text-bold">
+                  You donot have access to any data.
+                </div>
+              </div>
+            )}
             {/* ) : (<div>
             Please connect wallet to see your dashboard.
           </div>)} */}

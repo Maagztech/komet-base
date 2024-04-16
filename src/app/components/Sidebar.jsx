@@ -1,6 +1,11 @@
+"use client";
+import React, { useContext, useState } from "react";
+import { DataContext } from "@/context/data";
 import styles from "../styles/Sidebar.module.css";
-
+import TeamMemberAdd from "./TeamMemberAdd";
 const Sidebar = () => {
+  const { showInvite } = useContext(DataContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="sidebar bg-slate-50 max-w-[300px]  h-screen p-[30px] mr-[4px]">
       <div className="pt-[10px]">
@@ -163,6 +168,27 @@ const Sidebar = () => {
             </a>
           </li>
 
+          {showInvite && (
+            <li
+              className="my-[30px] flex text-gray-600 ml-[3px] cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <svg
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 8.46973H17V11.4697H14V13.4697H17V16.4697H19V13.4697H22V11.4697H19V8.46973ZM4 8.46973C4 10.7497 5.72 12.4697 8 12.4697C10.28 12.4697 12 10.7497 12 8.46973C12 6.18973 10.28 4.46973 8 4.46973C5.72 4.46973 4 6.18973 4 8.46973ZM10 8.46973C10 9.64773 9.178 10.4697 8 10.4697C6.822 10.4697 6 9.64773 6 8.46973C6 7.29173 6.822 6.46973 8 6.46973C9.178 6.46973 10 7.29173 10 8.46973ZM4 18.4697C4 16.8157 5.346 15.4697 7 15.4697H9C10.654 15.4697 12 16.8157 12 18.4697V19.4697H14V18.4697C14 15.7127 11.757 13.4697 9 13.4697H7C4.243 13.4697 2 15.7127 2 18.4697V19.4697H4V18.4697Z"
+                  fill="#C3CED2"
+                />
+              </svg>
+              <p>&nbsp;&nbsp;Invite</p>
+            </li>
+          )}
+
           {/* <li className="my-[30px] text-gray-600 ml-[6px]">
             <a className="lia flex" href="/">
               <svg
@@ -301,6 +327,10 @@ const Sidebar = () => {
           </li> */}
           {/* Add more navigation links as needed */}
         </ul>
+        <TeamMemberAdd
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
       </nav>
     </div>
   );

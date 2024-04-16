@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { DataContext } from "@/context/data";
 import axios from "axios";
 const Export = () => {
+  
+
   const {
     startDate,
     setStartDate,
@@ -11,7 +13,11 @@ const Export = () => {
     users,
     setTotalUsers,
     FindDateSpecificUsersCount,
+    setWalletAddress,
+    groupName
   } = useContext(DataContext);
+  
+  FindDateSpecificUsersCount();
   useEffect(() => {
     FindDateSpecificUsersCount();
   }, [startDate, endDate]);
@@ -21,12 +27,11 @@ const Export = () => {
       const response = await axios.get(
         "https://prod-api.komet.me/user/fetch/user/wallet/sdk/v1"
       );
-
-      setUsers(response.data?.["Bharatbox"]);
-      setTotalUsers(response.data?.["Bharatbox"].length);
+      setUsers(response.data?.[groupName]);
+      setTotalUsers(response.data?.[groupName].length);
     };
     fetchData().catch(console.error);
-  }, []);
+  }, [groupName]);
 
   const filterDataByDate = (data, start, end) => {
     return data.filter((item) => {
@@ -74,8 +79,12 @@ const Export = () => {
         </div>
       </div> */}
 
-      <div className="py-2 px-1 rounded bg-white">
+      <div className="py-2 px-1 flex items-center relative">
+        <p className="font-bold text-[12px] absolute top-0 left-[10px]">
+          Start Date :
+        </p>
         <input
+          className="bg-white rounded py-2 px-1"
           type="date"
           name="start"
           id="startdate"
@@ -83,8 +92,12 @@ const Export = () => {
           onChange={(e) => setStartDate(e.target.value)}
         />
       </div>
-      <div className="py-2 px-1 rounded bg-white">
+      <div className="py-2 px-1 flex relative">
+        <p className="font-bold text-[12px] absolute top-0 left-[10px]">
+          End Date :
+        </p>
         <input
+          className="bg-white rounded py-2 px-1"
           type="date"
           name="end"
           id="enddate"

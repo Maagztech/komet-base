@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "@/context/data";
 import Export from "./Export";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
@@ -8,6 +9,7 @@ import { useAccount } from "wagmi";
 const ConnectWallet = () => {
   const { open } = useWeb3Modal();
   const { address } = useAccount();
+  const { showData } = useContext(DataContext);
   //console.log('Address',address)
   return (
     <div>
@@ -22,20 +24,21 @@ const ConnectWallet = () => {
             </button>{" "}
           </div>
         ) : (
-          <div className="w-[100%] flex justify-end">
+          <div className="w-[100%] flex justify-end items-center bg-white">
             <div className="my-3  mr-[15px]">
               <w3m-button />
             </div>
           </div>
         )}
       </>
-
-      <div className="flex justify-between">
-        <p className="mt-[40px] mb-[20px] ml-[20px]">
-          Dashboard | <span className="text-red-700">Launch_</span>
-        </p>
-        <Export />
-      </div>
+      {showData && (
+        <div className="flex justify-between">
+          <p className="mt-[40px] mb-[20px] ml-[20px]">
+            Dashboard | <span className="text-red-700">Launch_</span>
+          </p>
+          <Export />
+        </div>
+      )}
     </div>
   );
 };

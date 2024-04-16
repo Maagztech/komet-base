@@ -14,28 +14,29 @@ const WalletCreationData = () => {
 
   useEffect(() => {
     const countMap = {};
+    if (users) {
+      users.forEach((item) => {
+        const date = new Date(item.createdAt);
+        const monthYearKey = `${date.toLocaleString("default", {
+          month: "short",
+        })}-${date.getFullYear()}`;
 
-    users.forEach((item) => {
-      const date = new Date(item.createdAt);
-      const monthYearKey = `${date.toLocaleString("default", {
-        month: "short",
-      })}-${date.getFullYear()}`;
+        if (!countMap[monthYearKey]) {
+          countMap[monthYearKey] = 0;
+        }
+        countMap[monthYearKey] += 1;
+      });
 
-      if (!countMap[monthYearKey]) {
-        countMap[monthYearKey] = 0;
-      }
-      countMap[monthYearKey] += 1;
-    });
-
-    const months = Object.keys(countMap);
-    const counts = Object.values(countMap);
-    const cumulativeCounts = counts.map(
-      (
-        (sum) => (value) =>
-          (sum += value)
-      )(0)
-    );
-    setAggregatedData({ months, counts, cumulativeCounts });
+      const months = Object.keys(countMap);
+      const counts = Object.values(countMap);
+      const cumulativeCounts = counts.map(
+        (
+          (sum) => (value) =>
+            (sum += value)
+        )(0)
+      );
+      setAggregatedData({ months, counts, cumulativeCounts });
+    }
   }, [users]);
 
   const data = {
