@@ -1,7 +1,9 @@
 import cryptojs from "crypto-js";
 import { ethers } from "ethers";
 import axios from "axios";
+import { deleteCookie } from "cookies-next";
 const BASE_URL = "https://prod-api.komet.me/";
+
 
 export const fetchUser = async (token) => {
     if (token == null) {
@@ -135,7 +137,7 @@ export const RegisterNewUser = async (
 export const fetchUserStatus = async (token, router) => {
     try {
         const result = await axios.get(
-            `${process.env.APP_BASE_URL}v1/api/auth/user/v1/details`,
+            `${BASE_URL}v1/api/auth/user/v1/details`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,

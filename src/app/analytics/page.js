@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { UserContext } from "@/context/userContext";
 import { DataContext } from "@/context/dataContext";
-import ConnectWallet from "@/components/ConnectWallet";
+import ShowUserName from "@/components/ShowUserName";
 import Sidebar from "@/components/Sidebar";
 import SmallCards from "@/components/SmallCards";
 import WalletCreationData from "@/components/WalletCreationData";
@@ -18,7 +18,7 @@ export default function Analytics() {
         <div className="flex max-h-screen">
           <Sidebar />
           <div className="flex-1 overflow-y-scroll">
-            <ConnectWallet />
+            <ShowUserName />
             {showData ? (
               <div>
                 <SmallCards />

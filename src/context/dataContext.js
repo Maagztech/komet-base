@@ -58,7 +58,7 @@ export const DataContextProvider = ({ children }) => {
             setGroupId(undefined);
             const checkAdmin = await axios.get(`https://prod-api.komet.me/invite/public/check-admin/${walletaddress}`);
             const checkInvitee = await axios.get(`https://prod-api.komet.me/invite/public/check-invite/${walletaddress}`);
-            if (checkAdmin.data.admin) {
+            if (checkAdmin?.data?.admin) {
                 setShowData(true);
                 setShowInvite(true);
                 setGroupName(checkAdmin.data.groupName);

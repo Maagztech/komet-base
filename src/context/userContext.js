@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useEffect, useState } from 'react';
-import { setCookie } from "cookies-next";
-import { generateSeedPhrase, checkUserName, fetchUser, parseJwt, checkEmailAccountExists, login, fetchSeed, decryptData, encryptData, getOneAccountDetails } from "@/data/userData"
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
+import { generateSeedPhrase, checkUserName, fetchUserStatus, fetchUser, parseJwt, checkEmailAccountExists, login, fetchSeed, decryptData, encryptData, getOneAccountDetails } from "@/data/userData"
 import { useRouter } from "next/navigation";
 export const UserContext = createContext();
 const APIKEY = "hl23n6dgigp2pgvtzt7sm0nw4caiau11";
@@ -12,7 +12,7 @@ export const UserContextProvider = ({ children }) => {
     const router = useRouter();
     const [userData, setUserData] = useState();
     const [available, setAvailable] = useState(false);
-    const [loading, setLoading] = useState(flase);
+    const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState("");
     const [userPannel, setUserPannel] = useState(false);
     const getEmail = async (res) => {
@@ -189,12 +189,24 @@ export const UserContextProvider = ({ children }) => {
     };
 
 
+    const logoutFromKomet = async () => {
+        localStorage.removeItem("address");
+        localStorage.clear();
+        deleteCookie('auth')
+        window.location.reload();
+        router.replace('/')
+    };
+
     const initializeUserData = async (auth) => {
         const email = localStorage.getItem("email");
         const addresss = localStorage.getItem("address");
         const share = localStorage.getItem("share");
-        const token = localStorage.getItem("token") || "";
-        const address = localStorage.getItem("address") || "";
+        const token = localStorage.getItem("token");
+        const address = localStorage.getItem("address");
+        if (!address || !token) {
+            router.push("/");
+            return;
+        }
         const res = await fetchSeed(token, auth, address);
         const seedPhrase = await decryptData(res.data.seedPhrase, APIKEY);
         const userDataRes = await fetchUserStatus(auth, router);
@@ -219,13 +231,15 @@ export const UserContextProvider = ({ children }) => {
         const auth = getCookie("auth");
         const bearerToken = localStorage.getItem("auth");
         if (typeof window !== "undefined") {
-            initializeUserData(auth || bearerToken);
+            if (auth || bearerToken)
+                initializeUserData(auth || bearerToken);
+            else router.push("/");
         }
     }, []);
 
 
     return (
-        <UserContext.Provider value={{ userPannel,fetchUserStatus, loading, setLoading, getEmail, userData, handleChange, handleSubmit, UserNameAvailablity, username, setUsername }} >
+        <UserContext.Provider value={{ logoutFromKomet, userPannel, loading, setLoading, getEmail, userData, handleChange, handleSubmit, UserNameAvailablity, username, setUsername }} >
             {children}
         </UserContext.Provider >
     );

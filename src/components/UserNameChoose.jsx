@@ -6,7 +6,7 @@ import { UserContext } from "@/context/userContext";
 const UserNameChoose = () => {
   const {
     setUsername,
-    checkUserName,
+    UserNameAvailablity,
     available,
     username,
     loading,
@@ -39,7 +39,7 @@ const UserNameChoose = () => {
                 <input
                   onChange={(e) => {
                     setUsername(e.target.value);
-                    checkUserName(e.target.value);
+                    UserNameAvailablity(e.target.value);
                   }}
                   placeholder="Enter your username"
                   className={
