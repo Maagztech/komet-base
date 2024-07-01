@@ -93,6 +93,116 @@ export const login = async (emailId, accessToken) => {
     return result;
 };
 
+export const generateSeedPhrase = async () => {
+    const randomBytes = crypto.randomBytes(16);
+    const mnemonic = await bip39.entropyToMnemonic(randomBytes.toString("hex"));
+    return mnemonic;
+};
+
+export const checkUserName = async (name) => {
+    const result = await axios.get(
+        `${BASE_URL}auth/checkUserName?userName=${name}`
+    );
+    return result;
+};
+
+export const RegisterNewUser = async (
+    username,
+    accessToken,
+    email,
+) => {
+    const response = await axios.post(
+        `${BASE_URL}v1/api/auth/user/registration/v1/register`,
+        {
+            username: username,
+            loginProvider: "GMAIL",
+            email: email,
+            loginContext: {
+                googleIdToken: accessToken
+            }
+        },
+        {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    )
+
+    return response;
+};
+
+
+export const fetchUserStatus = async (token, router) => {
+    try {
+        const result = await axios.get(
+            `${process.env.APP_BASE_URL}v1/api/auth/user/v1/details`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+        return result.data;
+    } catch (err) {
+        deleteCookie("auth");
+    }
+
+};
+
+
+
+export const SaveSeedToBackend = async (
+    accessToken,
+    userId,
+    seed,
+    address
+) => {
+    const result = await axios.post(
+        `${BASE_URL}userSeed/add`,
+        {
+            userId: userId,
+            seedPhrase: seed,
+            walletAddress: address,
+        },
+        {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+            },
+        }
+    );
+    return result;
+};
+
+export const linkAddress = async (
+    username,
+    userId,
+    email,
+    address,
+    BearerToken,
+    type,
+    registration,
+) => {
+    const result = await axios.post(
+        `${BASE_URL}user/saveWallet`,
+        {
+            username: username,
+            userId: userId,
+            email: email != null ? email : "",
+            walletAddress: address,
+            type: type,
+            registration: registration
+        },
+        {
+            headers: {
+                Authorization: `Bearer ${BearerToken}`,
+            },
+        }
+    );
+
+    return result;
+};
+
 export const decryptData = async (encrypted, key) => {
     const decrypted = await cryptojs.AES.decrypt(encrypted, key)
     const text = decrypted.toString(cryptojs.enc.Utf8);
