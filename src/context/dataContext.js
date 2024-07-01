@@ -1,10 +1,11 @@
 "use client";
 import axios from 'axios';
-import { createContext, useEffect, useState } from 'react';
-import { useAccount } from "wagmi";
+import { createContext, useEffect, useState, useContext } from 'react';
+import { UserContext } from "./userContext";
 export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
-    const { address } = useAccount();
+    let { userData } = useContext(UserContext);
+    let address = userData?.address;
     function formatDate(date) {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const DesktopAlert = () => {
-  // State to manage alert visibility
   const [showAlert, setShowAlert] = useState(true);
 
   if (!showAlert) {
@@ -15,7 +14,6 @@ const DesktopAlert = () => {
           <div className="flex items-center justify-between flex-wrap">
             <div className="w-0 flex-1 flex items-center">
               <span className="flex p-2 rounded-lg bg-blue-800">
-                {/* Icon */}
                 <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>

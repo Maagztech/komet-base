@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
 const SmallCards = () => {
   const { totalUsers, givenDateUsers } = useContext(DataContext);
 

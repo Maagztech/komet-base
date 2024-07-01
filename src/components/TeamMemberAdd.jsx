@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import axios from "axios";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
 export default function TeamMemberAdd({ isOpen, onClose }) {
   const { groupId } = useContext(DataContext);
   console.log("groupId", groupId);

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
 
 const WalletCreationData = () => {
   const { users } = useContext(DataContext);

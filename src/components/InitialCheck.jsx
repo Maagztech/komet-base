@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useAccount } from "wagmi";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
 import ConnectWallet from "./ConnectWallet";
 import Sidebar from "./Sidebar";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
@@ -14,7 +14,7 @@ export default function InitialCheck() {
   const { address } = useAccount();
   //console.log(wagmi)
   const { open } = useWeb3Modal();
-  
+
   return (
     <>
       {address ? (
@@ -22,31 +22,12 @@ export default function InitialCheck() {
           <Sidebar />
           <div className="flex-1 overflow-y-scroll">
             <ConnectWallet />
-            {/* {address ? ( */}
             {showData ? (
               <div>
                 <SmallCards />
                 <div className="flex">
-                  {/* <ContinuousGraph /> */}
                   <WalletCreationData />
-
-                  {/* <WeekdayBarGraph /> */}
                 </div>
-                {/* <div className="flex">
-              <UserLast30Days />
-            </div>
-            <div className="flex">
-              <MultiLineGraph />
-              <VolumesByMarketPlace />
-            </div>
-            <div className="flex">
-              <VolumesByMarketPlace3 />
-              <VolumesByMarketPlace4 />
-            </div>
-            <div className="flex">
-              <CountryUsersPercentageChart />
-              <MapChart />
-            </div> */}
               </div>
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center">
@@ -55,9 +36,6 @@ export default function InitialCheck() {
                 </div>
               </div>
             )}
-            {/* ) : (<div>
-            Please connect wallet to see your dashboard.
-          </div>)} */}
           </div>
         </div>
       ) : (

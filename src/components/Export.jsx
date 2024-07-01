@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
+import Downarrow from "@/assets/downarrow.svg";
 import axios from "axios";
 const Export = () => {
   const {
@@ -108,28 +109,7 @@ const Export = () => {
         className="flex gap-1 items-center py-2 px-2 rounded bg-black text-white cursor-pointer"
       >
         Export
-        <svg
-          width="11"
-          height="12"
-          viewBox="0 0 11 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5.19531 0.811523V10.8115"
-            stroke="white"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M1.10156 6.71973L5.19247 10.8106L9.28338 6.71973"
-            stroke="white"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <img src={Downarrow.src} alt="" />
       </div>
     </div>
   );

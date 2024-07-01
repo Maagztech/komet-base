@@ -1,8 +1,8 @@
-import InitialCheck from "../components/InitialCheck";
+import Onboarding from "../components/Onboarding";
 export default function Home() {
   return (
     <main>
-      <InitialCheck/>
+      <Onboarding />
     </main >
   );
 }

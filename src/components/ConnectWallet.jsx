@@ -1,16 +1,14 @@
 "use client";
 import React, { useContext } from "react";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
 import Export from "./Export";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
-//useAccount
 
 const ConnectWallet = () => {
   const { open } = useWeb3Modal();
   const { address } = useAccount();
   const { showData } = useContext(DataContext);
-  //console.log('Address',address)
   return (
     <div>
       <>

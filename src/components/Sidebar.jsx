@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext, useState } from "react";
-import { DataContext } from "@/context/data";
+import { DataContext } from "@/context/dataContext";
 import styles from "@/styles/Sidebar.module.css";
 import TeamMemberAdd from "./TeamMemberAdd";
 const Sidebar = () => {
