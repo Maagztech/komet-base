@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { DataContext } from "@/context/dataContext";
 import Export from "./Export";
 import { UserContext } from "@/context/userContext";
-import { SlArrowDown } from "react-icons/sl";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { IoLogOut } from "react-icons/io5";
 
 const ConnectWallet = () => {
@@ -30,8 +30,12 @@ const ConnectWallet = () => {
               className="bg-red-500 flex items-center gap-2 justify-center hover:bg-red-700 text-white font-bold my-3 py-2 px-4 rounded mr-[15px]"
               onClick={(e) => setShow(!show)}
             >
-              {userData.userName || String(userData.email).substring(0, 12)}{" "}
-              <SlArrowDown size={15} className="font-bold" />
+              {userData.username || String(userData.email).substring(0, 12)}{" "}
+              {!show ? (
+                <SlArrowDown size={15} className="font-bold" />
+              ) : (
+                <SlArrowUp size={15} className="font-bold" />
+              )}
             </button>
             {show && (
               <button

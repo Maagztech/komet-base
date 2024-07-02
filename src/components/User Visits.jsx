@@ -2,6 +2,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
+import Arrow from "@/assets/rightUpArrowGreen.svg";
 
 const WeekdayBarGraph = () => {
   const data = {
@@ -64,48 +65,29 @@ const WeekdayBarGraph = () => {
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] my-[30px] p-[20px] rounded-md pb-[40px] w-1/3">
-      <div className="flex justify-between">
-        <p className="font-semibold">User Visits</p>
-        <div className="flex gap-3 text-sm">
-          <p>D</p>
-          <p className="text-green-300">W</p>
-          <p>M</p>
-          <p>Y</p>
-        </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <p className=" text-black my-[10px] text-2xl">567</p>
-        <div>
-          <div className="flex gap-1 text-xs items-center p-1 justify-center rounded bg-green-100 text-green-800">
-            28.5%
-            <svg
-              width="9"
-              height="9"
-              viewBox="0 0 9 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.19401 7.47827L7.52734 2.14494"
-                stroke="#14CA74"
-                strokeWidth="0.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M7.52734 7.17334V2.14506H2.49906"
-                stroke="#14CA74"
-                strokeWidth="0.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+    <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-1/3 flex flex-col justify-between">
+      <div>
+        <div className="flex justify-between">
+          <p className="font-semibold">User Visits</p>
+          <div className="flex gap-3 text-sm">
+            <p>D</p>
+            <p className="text-green-300">W</p>
+            <p>M</p>
+            <p>Y</p>
           </div>
         </div>
-        <p className="text-xs text-gray-500"> from last period</p>
+        <div className="flex items-center gap-2">
+          <p className=" text-black my-[10px] text-2xl">567</p>
+          <div>
+            <div className="flex gap-1 text-xs items-center p-1 justify-center rounded bg-green-100 text-green-800">
+              28.5%
+              <img src={Arrow.src} alt="" />
+            </div>
+          </div>
+          <p className="text-xs text-gray-500"> from last period</p>
+        </div>
       </div>
-      <Bar data={data} options={options} height={300} />;
+      <Bar data={data} options={options} height={300} />
     </div>
   );
 };

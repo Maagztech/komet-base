@@ -3,9 +3,12 @@ import axios from 'axios';
 import { createContext, useEffect, useState, useContext } from 'react';
 import { UserContext } from "./userContext";
 export const DataContext = createContext();
+const BASE_URL = "https://prod-api.komet.me/";
+
+
 export const DataContextProvider = ({ children }) => {
     let { userData } = useContext(UserContext);
-    let address = userData?.address;
+
     function formatDate(date) {
         var d = new Date(date),
             month = '' + (d.getMonth() + 1),
@@ -27,7 +30,7 @@ export const DataContextProvider = ({ children }) => {
     const [givenDateUsers, setGivenDateUsers] = useState(0);
     const [showData, setShowData] = useState(false);
     const [showInvite, setShowInvite] = useState(false);
-    const [walletaddress, setWalletAddress] = useState(address);
+    const [walletaddress, setWalletAddress] = useState(userData?.address || "");
     const [groupName, setGroupName] = useState("");
     const [groupId, setGroupId] = useState();
     const FindDateSpecificUsersCount = async () => {
@@ -47,8 +50,10 @@ export const DataContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        setWalletAddress(address);
-    }, [address])
+        setWalletAddress(userData?.address);
+        console.log("userData", userData)
+    }, [userData])
+
     useEffect(() => {
         const fetchData = async () => {
             if (!walletaddress) return;
@@ -56,8 +61,8 @@ export const DataContextProvider = ({ children }) => {
             setShowInvite(false);
             setGroupName("");
             setGroupId(undefined);
-            const checkAdmin = await axios.get(`https://prod-api.komet.me/invite/public/check-admin/${walletaddress}`);
-            const checkInvitee = await axios.get(`https://prod-api.komet.me/invite/public/check-invite/${walletaddress}`);
+            const checkAdmin = await axios.get(`${BASE_URL}invite/public/check-admin/${walletaddress}`);
+            const checkInvitee = await axios.get(`${BASE_URL}invite/public/check-invite/${walletaddress}`);
             if (checkAdmin?.data?.admin) {
                 setShowData(true);
                 setShowInvite(true);

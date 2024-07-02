@@ -207,6 +207,7 @@ export const UserContextProvider = ({ children }) => {
             router.push("/");
             return;
         }
+        else router.push("/analytics")
         const res = await fetchSeed(token, auth, address);
         const seedPhrase = await decryptData(res.data.seedPhrase, APIKEY);
         const userDataRes = await fetchUserStatus(auth, router);
