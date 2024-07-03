@@ -47,9 +47,10 @@
 // export default MapChart;
 
 import React from "react";
+import dynamic from 'next/dynamic';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import('leaflet').then(obj => L)
 
 // // Fix marker icon issue in Leaflet 1.x.x
 // delete L.Icon.Default.prototype._getIconUrl;

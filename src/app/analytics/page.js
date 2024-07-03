@@ -1,5 +1,4 @@
 'use client';
-
 import { useContext } from "react";
 import { UserContext } from "@/context/userContext";
 import { DataContext } from "@/context/dataContext";
@@ -14,7 +13,10 @@ import VolumesByMarketPlace from "@/components/graphs/VolumeByMarketPlace";
 import VolumesByMarketPlace3 from "@/components/graphs/VolumesByMarketPlace3";
 import VolumesByMarketPlace4 from "@/components/graphs/VolumesByMarketPlace4";
 import CountryPercentageChart from "@/components/graphs/UsersByCountry";
-import MapData from "@/components/graphs/WorldMapWithDots";
+import dynamic from 'next/dynamic';
+const MapData = dynamic(() => import("@/components/graphs/WorldMapWithDots"), {
+  ssr: false
+});
 export default function Analytics() {
   const { userData } = useContext(UserContext);
   const { showData } = useContext(DataContext);
@@ -54,7 +56,8 @@ export default function Analytics() {
               </div>
               <div className="flex">
                 <CountryPercentageChart />
-                <MapData />
+                {typeof window !== 'undefined' &&
+                  <MapData />}
               </div>
             </div>
 
