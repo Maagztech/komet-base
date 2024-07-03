@@ -21,6 +21,7 @@ export default function Analytics() {
 
   return (
     <main>
+      <DesktopAlert />
       {userData?.address ? (
         <div className="flex max-h-screen">
           <Sidebar />
@@ -60,7 +61,7 @@ export default function Analytics() {
           </div>
         </div>
       ) : null}
-      <DesktopAlert />
+
     </main>
   );
 }
