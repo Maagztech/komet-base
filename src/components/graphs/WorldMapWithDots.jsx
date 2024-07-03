@@ -60,7 +60,7 @@ import "leaflet/dist/leaflet.css";
 // });
 
 const myIcon = L.icon({
-  iconUrl: 'https://www.svgrepo.com/show/376955/map-marker.svg',
+  iconUrl: "https://www.svgrepo.com/show/376955/map-marker.svg",
   iconSize: [25, 41],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
@@ -74,6 +74,8 @@ const WorldMapWithDots = () => {
     { name: "Germany", coords: [51.1657, 10.4515] },
     { name: "Australia", coords: [-25.2744, 133.7751] },
   ];
+
+  if (typeof Window === undefined) return null;
 
   return (
     <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-2/3 h-[500px]">
