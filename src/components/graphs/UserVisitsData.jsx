@@ -4,7 +4,7 @@ import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
 import Arrow from "@/assets/rightUpArrowGreen.svg";
 
-const WeekdayBarGraph = () => {
+const UserVisitsData = () => {
   const data = {
     labels: ["S", "M", "T", "W", "T", "F", "S"], // First letter of days of the week
     datasets: [
@@ -92,4 +92,4 @@ const WeekdayBarGraph = () => {
   );
 };
 
-export default WeekdayBarGraph;
+export default UserVisitsData;

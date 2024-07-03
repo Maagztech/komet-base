@@ -85,7 +85,7 @@ const WorldMapWithDots = () => {
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</contributors>'
+          attribution='&copy; <a href="https://www.komet.me">Komet</contributors>'
         />
         {countries.map((country, index) => (
           <Marker key={index} position={country.coords} icon={myIcon}>

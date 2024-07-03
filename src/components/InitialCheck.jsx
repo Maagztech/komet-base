@@ -7,7 +7,7 @@ import ConnectWallet from "./ConnectWallet";
 import Sidebar from "./Sidebar";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import SmallCards from "./SmallCards";
-import WalletCreationData from "./WalletCreationData";
+import WalletCreationData from "./graphs/WalletCreationData";
 import DesktopAlert from "./Alert";
 export default function InitialCheck() {
   const { showData } = useContext(DataContext);
