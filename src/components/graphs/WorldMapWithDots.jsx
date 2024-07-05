@@ -18,7 +18,7 @@
 
 // const MapChart = () => {
 //   return (
-//     <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-2/3 h-[500px]">
+//     <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[40px] w-2/3 h-[500px]">
 //       <ComposableMap>
 //         <Geographies geography="https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json">
 //           {({ geographies }) =>
@@ -47,10 +47,10 @@
 // export default MapChart;
 
 import React from "react";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import('leaflet').then(obj => L)
+import("leaflet").then((obj) => L);
 
 // // Fix marker icon issue in Leaflet 1.x.x
 // delete L.Icon.Default.prototype._getIconUrl;
@@ -79,7 +79,7 @@ const WorldMapWithDots = () => {
   if (typeof Window === undefined) return null;
 
   return (
-    <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-2/3 h-[500px]">
+    <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[40px] w-2/3 h-[500px]">
       <MapContainer
         center={[20, 0]}
         zoom={2}

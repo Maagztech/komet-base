@@ -6,52 +6,72 @@ import ExportArrow from "@/assets/downarrow.svg";
 import Arrow from "@/assets/rightUpArrowGreen.svg";
 
 const CountryPercentageChart = () => {
+  const percentages = [70, 55, 80, 60, 50]; // Example percentages for each country
+  const remainingPercentages = percentages.map(value => 100 - value); // Calculate the remaining percentages
+
   const data = {
     labels: ["India", "United Kingdom", "Canada", "Australia", "Spain"],
     datasets: [
       {
         label: "Percentage",
-        data: [70, 55, 80, 60, 50], // Example percentages for each country
-        backgroundColor: ["red", "blue", "green", "orange", "purple"], // Fill color for each country's percentage
+        data: percentages,
+        backgroundColor: (context) => {
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+          if (!chartArea) {
+            return null;
+          }
+
+          const gradient = ctx.createLinearGradient(
+            chartArea.left,
+            0,
+            chartArea.right,
+            0
+          );
+          gradient.addColorStop(0, "#F9654F");
+          gradient.addColorStop(1, "#FF26E9");
+
+          return gradient;
+        },
         barPercentage: 1.0,
         categoryPercentage: 1.0,
-        barThickness: 3,
+        barThickness: 4,
       },
       {
         label: "Remaining",
-        data: [30, 45, 20, 40, 50], // Calculate the remaining percentage to reach 100%
-        backgroundColor: "black", // Black color for the unfilled portion
+        data: remainingPercentages,
+        backgroundColor: "black",
         barPercentage: 1.0,
         categoryPercentage: 1.0,
-        barThickness: 3,
+        barThickness: 4,
       },
     ],
   };
 
   const options = {
-    indexAxis: "y", // Use a horizontal bar chart
+    indexAxis: "y",
     scales: {
       x: {
         stacked: true,
         grid: {
-          color: "rgba(0, 0, 0, 0)", // Decrease opacity of x-axis grid lines
+          color: "rgba(0, 0, 0, 0)",
         },
         ticks: {
-          callback: (value) => `${value}%`, // Display percentages on the X-axis
+          callback: (value) => `${value}%`,
           beginAtZero: true,
-          max: 100, // Ensure the scale goes from 0 to 100
+          max: 100,
         },
       },
       y: {
         stacked: true,
         grid: {
-          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+          color: "rgba(0, 0, 0, 0)",
         },
       },
     },
     plugins: {
       legend: {
-        display: false, // Optionally hide the legend
+        display: false,
       },
     },
   };
@@ -61,7 +81,7 @@ const CountryPercentageChart = () => {
       <p className="font-semibold">Users By Country</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
-          <p className=" text-black my-[10px] text-2xl">12.4K</p>
+          <p className="text-black my-[10px] text-2xl">12.4K</p>
           <div>
             <div className="flex gap-1 text-xs items-center p-1 justify-center rounded bg-green-100 text-green-800">
               28.5%
@@ -69,12 +89,12 @@ const CountryPercentageChart = () => {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <div className="flex gap-1 items-center py-2 px-2 rounded bg-black text-white">
             Export
             <img src={ExportArrow.src} alt="" />
           </div>
-        </div>
+        </div> */}
       </div>
       <Bar data={data} options={options} height={300} />
     </div>

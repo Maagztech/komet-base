@@ -6,14 +6,21 @@ import "chart.js/auto";
 const TotalMintData = () => {
   const chartRef = useRef(null);
 
-  const cryptoTokens = ["BTC", "APT", "ETH", "XRP", "LTC", "BCH", "ADA"]; // Example crypto token names
+  // Generate labels for the previous 12 months
+  const labels = Array.from({ length: 12 }, (_, i) => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - i);
+    const month = date.toLocaleString("default", { month: "short" });
+    const year = date.getFullYear().toString().slice(-2);
+    return `${month}-${year}`;
+  }).reverse();
 
   const data = {
-    labels: cryptoTokens,
+    labels,
     datasets: [
       {
         label: "Mints",
-        data: [12, 19, 3, 5, 2, 3, 7], // Example values for each token
+        data: [12, 19, 3, 5, 2, 3, 9, 7, 4, 6, 10, 8], // Example values for each month
         backgroundColor: function (context) {
           const chart = context.chart;
           const { ctx, chartArea } = chart;
@@ -49,7 +56,7 @@ const TotalMintData = () => {
         },
         ticks: {
           callback: function (value) {
-            return "$ " + value + "k"; // Append 'k' to the y-axis values
+            return value + 'k'; // Append 'k' to the y-axis values
           },
         },
       },
@@ -67,9 +74,9 @@ const TotalMintData = () => {
   };
 
   return (
-    <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[60px] w-1/3 flex flex-col justify-between max-h-[450px]">
-      <p className="font-semibold mb-[30px]">Net Worth by Token Type</p>
-      <Bar data={data} options={options} ref={chartRef} height={300}/>
+    <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[60px] w-2/3 flex flex-col justify-between max-h-[450px]">
+      <p className="font-semibold mb-[30px]">Number Of Mints</p>
+      <Bar data={data} options={options} ref={chartRef} />
     </div>
   );
 };

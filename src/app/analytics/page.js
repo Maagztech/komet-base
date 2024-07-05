@@ -14,6 +14,9 @@ import VolumesByMarketPlace3 from "@/components/graphs/VolumesByMarketPlace3";
 import VolumesByMarketPlace4 from "@/components/graphs/VolumesByMarketPlace4";
 import CountryPercentageChart from "@/components/graphs/UsersByCountry";
 import dynamic from 'next/dynamic';
+import TransactionPerformed from "@/components/graphs/TransactionPerformed";
+import TransactionVolume from "@/components/graphs/TransactionVolume";
+import TotalMintData from "@/components/graphs/TotalMintData";
 const MapData = dynamic(() => import("@/components/graphs/WorldMapWithDots"), {
   ssr: false
 });
@@ -22,18 +25,27 @@ export default function Analytics() {
   const { showData } = useContext(DataContext);
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <DesktopAlert />
       {userData?.address ? (
         <div className="flex max-h-screen">
           <Sidebar />
-          <div className="flex-1 overflow-y-scroll">
+          <div className="flex-1 overflow-y-scroll overflow-x-hidden">
             <ShowUserName />
             {showData ? (
               <div>
                 <SmallCards />
+                <WalletCreationData />
+                <TransactionPerformed />
+                <TransactionVolume />
+                <div className="flex flex-1">
+                  <TotalMintData />
+                  <UserVisitsData />
+                </div>
                 <div className="flex">
-                  <WalletCreationData />
+                  <CountryPercentageChart />
+                  {typeof window !== 'undefined' &&
+                    <MapData />}
                 </div>
               </div>) : (
               <div className="w-full h-full flex flex-col items-center justify-center">
@@ -43,22 +55,17 @@ export default function Analytics() {
               </div>
             )}
             <div>
-              <div className="flex">
-                <UserLast30Days />
-              </div>
-              <div className="flex flex-1">
+
+              {/* <UserLast30Days /> */}
+              {/* <div className="flex flex-1">
                 <UserVisitsData />
                 <VolumesByMarketPlace />
               </div>
               <div className="flex">
                 <VolumesByMarketPlace3 />
                 <VolumesByMarketPlace4 />
-              </div>
-              <div className="flex">
-                <CountryPercentageChart />
-                {typeof window !== 'undefined' &&
-                  <MapData />}
-              </div>
+              </div> */}
+
             </div>
 
           </div>

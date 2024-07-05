@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
-import "chart.js/auto";
 import { DataContext } from "@/context/dataContext";
+import "chart.js/auto";
 
 const WalletCreationData = () => {
   const { users } = useContext(DataContext);
@@ -13,8 +13,8 @@ const WalletCreationData = () => {
   });
 
   useEffect(() => {
-    const countMap = {};
     if (users) {
+      const countMap = {};
       users.forEach((item) => {
         const date = new Date(item.createdAt);
         const monthYearKey = `${date.toLocaleString("default", {
@@ -39,29 +39,37 @@ const WalletCreationData = () => {
     }
   }, [users]);
 
+  const gradient = document.createElement("canvas").getContext("2d");
+  const gradientFill = gradient.createLinearGradient(0, 0, 0, 450);
+  gradientFill.addColorStop(0, "#F9654F");
+  gradientFill.addColorStop(1, "#FF26E9");
+
   const data = {
     labels: aggregatedData.months,
     datasets: [
       {
-        label: "Month Data",
         data: aggregatedData.counts,
-        fill: true,
-        backgroundColor: "rgba(255,255,255, 0.3)", // Light blue fill
-        borderColor: "rgb(54, 162, 235)", // Blue line
+        borderColor: gradientFill,
+        borderWidth: 5, // Adjusted border width
         tension: 0.3,
-      },
-      {
-        label: "Aggregated Data",
-        data: aggregatedData.cumulativeCounts,
-        fill: true,
-        backgroundColor: "rgba(255, 255, 255, 0.3)", // Light red fill
-        borderColor: "rgb(255, 99, 132)", // Red line
-        tension: 0.3,
+        fill: false,
+        pointRadius: 6,
+        pointerBorderWidth: 1,
+        pointHoverRadius: 8, // Increased pointer size on hover
+        pointBackgroundColor: "#FFFFFF", // Transparent data point fill
+        pointBorderColor: "#FF26E9", // Border color for data points
+        pointHoverBackgroundColor: "#FFFFFF", // Hover color for data points
+        pointHoverBorderWidth: 3, // Hover border width
       },
     ],
   };
 
   const options = {
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+    },
     scales: {
       x: {
         title: {
@@ -69,12 +77,13 @@ const WalletCreationData = () => {
           text: "Months-year",
           color: "#000000",
           font: {
-            size: 16,
+            size: 14, // Adjust font size
+            weight: "bold", // Make the font bold
           },
           padding: { top: 20, left: 0, right: 0, bottom: 0 },
         },
         grid: {
-          color: "rgba(0, 0, 0, 0)", // Decrease opacity of X-axis grid lines
+          color: "rgba(0, 0, 0, 0)",
         },
       },
       y: {
@@ -84,7 +93,8 @@ const WalletCreationData = () => {
           text: "Wallet Creation",
           color: "#000000",
           font: {
-            size: 16,
+            size: 14, // Adjust font size
+            weight: "bold", // Make the font bold
           },
           padding: { top: 30, left: 0, right: 0, bottom: 0 },
         },
@@ -92,19 +102,18 @@ const WalletCreationData = () => {
           color: "rgba(0, 0, 0, 0)",
         },
         ticks: {
-          // Convert Y-axis values to 'K' format and restrict to specific values
           callback: (value) => value,
           beginAtZero: true,
-          stepSize: 1000, // Step size of 100K
-          max: 12000, // Maximum value of 400K
+          stepSize: 1000,
+          max: 12000,
         },
       },
     },
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] my-[30px] p-[20px] rounded-md pb-[40px] w-full">
-      <p className="font-semibold">User activity over time</p>
+    <div className="bg-white ml-[30px] my-[40px] p-[28px] rounded-md pb-[40px] w-full mx-h-[450px]">
+      <p className="font-semibold mb-[36px]">Wallet Created</p>
       <Line data={data} options={options} />
     </div>
   );

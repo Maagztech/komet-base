@@ -78,7 +78,7 @@ const Export = () => {
         </div>
       </div> */}
 
-      <div className="py-2 px-1 flex items-center relative">
+      {/* <div className="py-2 px-1 flex items-center relative">
         <p className="font-bold text-[12px] absolute top-0 left-[10px]">
           Start Date :
         </p>
@@ -110,7 +110,7 @@ const Export = () => {
       >
         Export
         <img src={Downarrow.src} alt="" />
-      </div>
+      </div> */}
     </div>
   );
 };

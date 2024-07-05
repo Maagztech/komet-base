@@ -194,7 +194,7 @@ export const UserContextProvider = ({ children }) => {
         localStorage.clear();
         deleteCookie('auth')
         window.location.reload();
-        router.replace('/')
+        router.push('/')
     };
 
     const initializeUserData = async (auth) => {

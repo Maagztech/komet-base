@@ -13,7 +13,7 @@ const ConnectWallet = () => {
     <div>
       <>
         {!address ? (
-          <div className="w-full flex justify-end bg-slate-50 items-center">
+          <div className="w-full flex justify-end bg-white items-center">
             <button
               onClick={() => open()}
               className="bg-red-500 hover:bg-red-700 text-white font-bold my-3 py-2 px-4 rounded mr-[15px]"
@@ -31,7 +31,7 @@ const ConnectWallet = () => {
       </>
       {showData && (
         <div className="flex justify-between">
-          <p className="mt-[40px] mb-[20px] ml-[20px]">
+          <p className="mt-[40px] mb-[20px] ml-[30px]">
             Dashboard | <span className="text-red-700">Launch_</span>
           </p>
           <Export />

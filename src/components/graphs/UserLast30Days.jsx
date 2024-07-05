@@ -55,7 +55,7 @@ const UserLast30Days = () => {
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-1/3">
+    <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[40px] w-1/3">
       <p className="font-semibold">Users in Last 30 Days</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">

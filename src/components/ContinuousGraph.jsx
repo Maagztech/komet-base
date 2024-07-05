@@ -76,7 +76,7 @@ const ContinuousGraph = () => {
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] my-[30px] p-[20px] rounded-md pb-[40px] w-full">
+    <div className="bg-white ml-[30px] my-[30px] p-[28px] rounded-md pb-[40px] w-full">
       <p className="font-semibold">User activity over time</p>
       <Line data={data} options={options} />
     </div>

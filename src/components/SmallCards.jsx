@@ -5,75 +5,62 @@ const SmallCards = () => {
   const { totalUsers, givenDateUsers } = useContext(DataContext);
 
   return (
-    <div className="flex justify-start ml-[20px]">
-      <div className="flex bg-slate-50 p-[15px] rounded-md mr-[30px]">
+    <div className="flex justify-start ml-[30px] overflow-auto">
+      <div className="flex bg-white p-[24px] rounded-md mr-[16px] min-w-[261.75px]">
         <div>
-          <p className="whitespace-nowrap text-gray-500">
-            Total wallets created
+          <p
+            className="whitespace-nowrap text-[#93A3AB] text-[13px] leading-[16px] font-medium mb-[8px]"
+            style={{ letterSpacing: "-2%" }}
+          >
+            Wallets created
           </p>
-          <h5 className="font-bold">{totalUsers}</h5>
+          <h5 className="font-bold text-[16px] leading-[24px]">{totalUsers}</h5>
         </div>
-        <div className="flex items-end ml-[20px]">
-          <div className="whitespace-nowrap bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
+        <div className="flex items-end ml-[30px]">
+          <div style={{ letterSpacing: "-2%" }} className=" leading-[16px] font-medium whitespace-nowrap bg-[#E3F4E3] text-[11.58px] px-2 flex items-center text-[#65C565] py-0 rounded-full">
             All Time
           </div>
         </div>
       </div>
-      <div className="flex bg-slate-50 p-[15px] rounded-md mr-[30px]">
+      <div className="flex bg-white p-[24px] rounded-md mr-[16px] min-w-[261.75px]">
         <div>
-          <p className="whitespace-nowrap text-gray-500">Wallets created</p>
-          <h5 className="font-bold">{givenDateUsers}</h5>
+          <p
+            className="whitespace-nowrap text-[#93A3AB] text-[13px] leading-[16px] font-medium mb-[8px]"
+            style={{ letterSpacing: "-2%" }}
+          >
+            Transaction Volume
+          </p>
+          <h5 className="font-bold text-[16px] leading-[24px]">$340,716</h5>
         </div>
-        <div className="flex items-end ml-[20px]">
-          <div className="whitespace-nowrap bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
-            Given date
+        <div className="flex items-end ml-[30px]">
+          <div style={{ letterSpacing: "-2%" }} className=" leading-[16px] font-medium whitespace-nowrap bg-[#E3F4E3] text-[11.58px] px-2 flex items-center text-[#65C565] py-0 rounded-full">
+            All Time
           </div>
         </div>
       </div>
-      {/* <div className="flex bg-slate-50 p-[15px] rounded-md mr-[30px]">
+      <div className="flex bg-white p-[24px] rounded-md mr-[16px] min-w-[261.75px]">
         <div>
-          <p className="whitespace-nowrap text-gray-500">Total Sales Volume</p>
-          <h5 className="font-bold">$33,789,90</h5>
+          <p
+            className="whitespace-nowrap text-[#93A3AB] text-[13px] leading-[16px] font-medium mb-[8px]"
+            style={{ letterSpacing: "-2%" }}
+          >
+            Net Worth
+          </p>
+          <h5 className="font-bold text-[16px] leading-[24px]">$33,789,90</h5>
         </div>
-        <div className="flex items-end ml-[20px]">
-          <div className="whitespace-nowrap bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
-            All Time
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="flex bg-slate-50 p-[15px] rounded-md  mr-[30px]">
+      </div>
+      <div className="flex bg-white p-[24px] rounded-md mr-[16px] min-w-[261.75px]">
         <div>
-          <p className="whitespace-nowrap text-gray-500">Total Sales</p>
-          <h5 className="font-bold">340,716</h5>
+          <p
+            className="whitespace-nowrap text-[#93A3AB] text-[13px] leading-[16px] font-medium mb-[8px]"
+            style={{ letterSpacing: "-2%" }}
+          >
+            Active User
+          </p>
+          <h5 className="font-bold text-[16px] leading-[24px]">340,716</h5>
         </div>
-        <div className="flex  items-end ml-[20px]">
-          <div className="whitespace-nowrap bg-green-200 px-2 flex items-center text-green-700 py-0 rounded-full">
-            All Time
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="flex bg-slate-50 p-[15px] rounded-md mr-[30px]">
-        <div>
-          <p className="whitespace-nowrap text-gray-500">Total Sale Volume</p>
-          <h5 className="font-bold">$33,789,90</h5>
-        </div>
-        <div className="flex  items-end ml-[20px]">
-          <div className="whitespace-nowrap bg-red-200 px-2 text-red-700 py-0 rounded-full">
-            24h Stats
-          </div>
-        </div>
-      </div> */}
-      {/*<div className="flex bg-slate-50 p-[15px] rounded-md  mr-[30px]">
-         <div>
-          <p className="whitespace-nowrap text-gray-500">Total Sales</p>
-          <h5 className="font-bold">340,716</h5>
-        </div>
-        <div className="flex  items-end ml-[20px]">
-          <div className="whitespace-nowrap bg-red-200 px-2 flex items-center text-red-700 py-0 rounded-full">
-            24h Stats
-          </div>
-        </div>
-      </div> */}
+      </div>
+
     </div>
   );
 };

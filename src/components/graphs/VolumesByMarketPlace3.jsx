@@ -78,7 +78,7 @@ const VolumesByMarketPlace3 = () => {
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-2/3">
+    <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[40px] w-2/3">
       <p className="font-semibold">Volumes by Marketplace $</p>
       <p className="text-sm text-gray-400 mb-[10px]">
         <span className="text-green-700">+3,4% </span>Past Month

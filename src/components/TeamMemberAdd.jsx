@@ -37,7 +37,7 @@ export default function TeamMemberAdd({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-white bg-opacity-80 flex justify-center items-center">
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
       <div className="bg-white p-5 rounded-lg border w-[450px]">
         <h2 className="font-bold text-[25px] mb-4">Invite Wallet</h2>
         <form onSubmit={handleSubmit}>
