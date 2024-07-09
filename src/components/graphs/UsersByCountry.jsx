@@ -77,7 +77,7 @@ const CountryPercentageChart = () => {
   };
 
   return (
-    <div className="bg-slate-50 ml-[20px] mb-[30px] p-[20px] rounded-md pb-[40px] w-1/3">
+    <div className="bg-white ml-[30px] mb-[30px] p-[20px] rounded-md w-1/3">
       <p className="font-semibold">Users By Country</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">

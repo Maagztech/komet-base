@@ -15,7 +15,7 @@ const Sidebar = () => {
   const { showInvite } = useContext(DataContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div className="sidebar bg-slate-50 max-w-[300px]  h-screen p-[30px] mr-[4px]">
+    <div className="sidebar bg-white max-w-[300px]  h-screen p-[30px] mr-[4px]">
       <div className="pt-[10px]">
         <svg
           width="180"
