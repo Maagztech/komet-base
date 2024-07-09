@@ -5,7 +5,7 @@ const DesktopAlert = () => {
 
   return (
     <>
-    <div className="h-screen w-screen bg-white0 bg-opacity-30 lg:hidden absolute z-10"></div>
+    <div className="h-screen w-screen bg-white0 bg-opacity-30 lg:hidden absolute z-100"></div>
       <div className="fixed bottom-0 inset-x-0 pb-2 sm:pb-5 lg:hidden">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="p-2 rounded-lg bg-blue-600 shadow-lg sm:p-3">
