@@ -120,7 +120,7 @@ const TransactionPerformed = () => {
   };
 
   return (
-    <div className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-md w-full h-[408px]">
+    <div className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-[10px] w-full h-[408px]">
       <p className="font-semibold">Total Transaction Performed</p>
       <Bar data={data} options={options} />
     </div>

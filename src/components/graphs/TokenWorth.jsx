@@ -64,7 +64,7 @@ const TotalMintData = () => {
   };
 
   return (
-    <div className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-md pb-[60px] w-1/3 flex flex-col justify-between max-h-[450px]">
+    <div className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-[10px] pb-[60px] w-1/3 flex flex-col justify-between max-h-[450px]">
       <p className="font-semibold mb-[8px]">Net Worth by Token Type</p>
       <p className="text-[13px] text-[#93A3AB] leading-[16px] font-medium mb-[25px]">
         <span className="text-[#65C565] font-semibold">+3,4% </span>from Last

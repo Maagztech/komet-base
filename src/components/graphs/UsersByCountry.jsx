@@ -90,16 +90,14 @@ const CountryPercentageChart = () => {
   };
 
   return (
-    <div className="bg-white ml-[30px] mb-[40px] p-[20px] rounded-md w-1/3">
-      <p className="font-semibold">Users By Country</p>
+    <div className="bg-[white] ml-[30px] mb-[40px] p-[20px] rounded-l-[10px] w-1/3 border-r-[0.6px] border-[#0B1739]">
+      <p className="font-normal text-[#1B192B]">Users By Country</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-black my-[10px] text-2xl">12.4K</p>
-          <div>
-            <div className="flex gap-1 text-xs items-center p-1 justify-center rounded bg-green-100 text-green-800">
-              28.5%
-              <img src={Arrow.src} alt="" />
-            </div>
+          <p className="text-[#1B192B] my-[10px] text-2xl">12.4K</p>
+          <div className="flex items-center px-1 py-[2px] justify-center rounded-[2px] border-[0.6px] border-[#05C16833] bg-[#05C16833] ">
+            <p className="text-[10px] text-[#14CA74] mr-[2px]">28.5%</p>
+            <img src={Arrow.src} alt="" />
           </div>
         </div>
         {/* <div>

@@ -124,7 +124,7 @@ const WalletCreationData = () => {
   };
 
   return (
-    <div className="bg-white ml-[30px] p-[28px] rounded-md pb-[40px] w-full h-[408px] mb-[40px]">
+    <div className="bg-white ml-[30px] p-[28px] rounded-[10px] pb-[40px] w-full h-[408px] mb-[40px]">
       <p className="font-semibold">Wallet Created</p>
       <div style={{ position: "relative", height: "100%", width: "100%" }}>
         <Line data={data} options={options} />

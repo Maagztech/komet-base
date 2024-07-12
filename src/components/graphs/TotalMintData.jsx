@@ -126,7 +126,7 @@ const TotalMintData = () => {
   }, []);
 
   return (
-    <div className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-md pb-[60px] w-2/3 flex flex-col justify-between max-h-[450px]">
+    <div className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-[10px] pb-[60px] w-2/3 flex flex-col justify-between max-h-[450px]">
       <p className="font-semibold mb-[15px]">Number Of Mints</p>
       <Bar data={data} options={options} ref={chartRef} />
     </div>

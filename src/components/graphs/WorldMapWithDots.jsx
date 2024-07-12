@@ -79,12 +79,12 @@ const WorldMapWithDots = () => {
   if (typeof Window === undefined) return null;
 
   return (
-    <div className="bg-white ml-[30px] mb-[30px] p-[28px] rounded-md pb-[40px] w-2/3 h-[500px]">
+    <div className="bg-[white] mb-[40px] p-[10px] rounded-r-[10px] w-2/3 ">
       <MapContainer
-        center={[20, 0]}
+        center={[25, 0]}
         zoom={2}
         scrollWheelZoom={true}
-        style={{ height: "460px", width: "100%" }}
+        style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
