@@ -44,77 +44,108 @@ const WalletCreationData = () => {
   gradientFill.addColorStop(0, "#F9654F");
   gradientFill.addColorStop(1, "#FF26E9");
 
+  const backgroundGradient = gradient.createLinearGradient(0, 0, 450, 0);
+  backgroundGradient.addColorStop(0, "rgba(94, 195, 255, 0.04)");
+  backgroundGradient.addColorStop(1, "rgba(253, 93, 239, 0.04)");
+
   const data = {
     labels: aggregatedData.months,
     datasets: [
       {
         data: aggregatedData.counts,
         borderColor: gradientFill,
-        borderWidth: 5, // Adjusted border width
+        borderWidth: 4,
         tension: 0.3,
-        fill: false,
-        pointRadius: 6,
-        pointerBorderWidth: 1,
-        pointHoverRadius: 8, // Increased pointer size on hover
-        pointBackgroundColor: "#FFFFFF", // Transparent data point fill
-        pointBorderColor: "#FF26E9", // Border color for data points
-        pointHoverBackgroundColor: "#FFFFFF", // Hover color for data points
-        pointHoverBorderWidth: 3, // Hover border width
+        fill: true,
+        backgroundColor: backgroundGradient,
+        pointRadius: 8, // Increased pointer size
+        pointBorderWidth: 2, // Increased pointer border width
+        pointHoverRadius: 10, // Increased pointer hover size
+        pointBackgroundColor: "#FFFFFF", // Pointer fill color white
+        pointBorderColor: gradientFill,
+        pointHoverBackgroundColor: "#FFFFFF", // Pointer hover fill color white
+        pointHoverBorderWidth: 2,
       },
     ],
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false, // Hide the legend
+      },
+      tooltip: {
+        intersect: false,
+        mode: "index",
       },
     },
     scales: {
       x: {
         title: {
-          display: true,
-          text: "Months-year",
-          color: "#000000",
-          font: {
-            size: 14, // Adjust font size
-            weight: "bold", // Make the font bold
-          },
-          padding: { top: 20, left: 0, right: 0, bottom: 0 },
+          display: false, // Hide the x-axis title
         },
         grid: {
-          color: "rgba(0, 0, 0, 0)",
+          drawBorder: false,
+          drawOnChartArea: true, // Ensure grid lines are drawn
+          color: "rgba(3, 2, 41, 0.05)", // Horizontal grid lines color with opacity 5%
+          drawTicks: false,
+        },
+        ticks: {
+          padding: 15, // 15px gap between x ticks and graph
         },
       },
       y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: "Wallet Creation",
-          color: "#000000",
-          font: {
-            size: 14, // Adjust font size
-            weight: "bold", // Make the font bold
-          },
-          padding: { top: 30, left: 0, right: 0, bottom: 0 },
-        },
-        grid: {
-          color: "rgba(0, 0, 0, 0)",
-        },
-        ticks: {
-          callback: (value) => value,
-          beginAtZero: true,
-          stepSize: 1000,
-          max: 12000,
-        },
+        display: false, // Hide the y-axis
       },
     },
+    interaction: {
+      intersect: false,
+      mode: "index",
+    },
+    hover: {
+      mode: "index",
+      intersect: false,
+      onHover: function (event, chartElement) {
+        const chart = chartElement[0]?.chart;
+        if (chart) {
+          const ctx = chart.canvas.getContext("2d");
+          const x = chartElement[0].element.x;
+          const y = chartElement[0].element.y;
+          const topY = chart.chartArea.top;
+          
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([5, 5]);
+          ctx.moveTo(x, topY);
+          ctx.lineTo(x, y);
+          ctx.strokeStyle = gradientFill;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.restore();
+        }
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 4,
+        fill: "start",
+      },
+      point: {
+        radius: 5,
+        hoverRadius: 7,
+      },
+    },
+    animation: false,
   };
 
   return (
-    <div className="bg-white ml-[30px] my-[40px] p-[28px] rounded-md pb-[40px] w-full mx-h-[450px]">
+    <div className="bg-white ml-[30px] p-[28px] rounded-md pb-[40px] w-full h-[408px] mb-[40px]">
       <p className="font-semibold mb-[36px]">Wallet Created</p>
-      <Line data={data} options={options} />
+      <div style={{ position: "relative", height: "100%", width: "100%" }}>
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };

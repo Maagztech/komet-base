@@ -33,6 +33,7 @@ export const DataContextProvider = ({ children }) => {
     const [walletaddress, setWalletAddress] = useState(userData?.address || "");
     const [groupName, setGroupName] = useState("");
     const [groupId, setGroupId] = useState();
+    const [h24User, setH24Users] = useState(0);
     const FindDateSpecificUsersCount = async () => {
         try {
             let count = 0;
@@ -90,7 +91,8 @@ export const DataContextProvider = ({ children }) => {
             showData, showInvite,
             groupName, setGroupName,
             groupId, setGroupId,
-            FindDateSpecificUsersCount
+            FindDateSpecificUsersCount,
+            h24User
         }}>
             {children}
         </DataContext.Provider>

@@ -55,17 +55,6 @@ export default function Analytics() {
               </div>
             )}
             <div>
-
-              {/* <UserLast30Days /> */}
-              {/* <div className="flex flex-1">
-                <UserVisitsData />
-                <VolumesByMarketPlace />
-              </div>
-              <div className="flex">
-                <VolumesByMarketPlace3 />
-                <VolumesByMarketPlace4 />
-              </div> */}
-
             </div>
 
           </div>
