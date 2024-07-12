@@ -1,11 +1,14 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { DataContext } from "@/context/dataContext";
+import User from "@/assets/dropz.svg";
+import Cross from "@/assets/circlecross.svg";
+import Success from "@/assets/success.svg";
 export default function TeamMemberAdd({ isOpen, onClose }) {
   const { groupId } = useContext(DataContext);
   console.log("groupId", groupId);
   const [walletAddresses, setWalletAddresses] = useState("");
-
+  const [success, setSuccess] = useState(true);
   const handleWalletAddressesChange = (event) => {
     setWalletAddresses(event.target.value);
   };
@@ -26,74 +29,74 @@ export default function TeamMemberAdd({ isOpen, onClose }) {
         data
       );
       console.log(response);
+      setSuccess(true);
     }
     setWalletAddresses("");
   };
 
   const resetForm = () => {
+    setSuccess(false);
     onClose(); // Call onClose to close the modal
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-      <div className="bg-white p-5 rounded-lg border w-[450px]">
-        <h2 className="font-bold text-[25px] mb-4">Invite Wallet</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-[20px] flex border rounded-[12px] p-1 shadow items-center w-full">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z"
-                stroke="#87898E"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9"
-                stroke="#87898E"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-            <input
-              className="appearance-none w-full outline-none py-2 px-3 text-gray-700 leading-tight"
-              id="addressess"
-              name="addressess"
-              type="text"
-              value={walletAddresses}
-              onChange={handleWalletAddressesChange}
-              placeholder="Wallet addresses separated by commas"
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-[2000]">
+      {!success ? (
+        <div className="bg-white px-[32px] py-[24px] rounded-lg border w-[544px]">
+          <div className="flex items-center justify-between mb-[32px]">
+            <h2 className="font-semibold text-[24px] leading-[32px]">
+              Invite Team member
+            </h2>
+            <img
+              src={Cross.src}
+              alt=""
+              onClick={resetForm}
+              className="cursor-pointer"
             />
           </div>
-          <div className="flex items-center justify-between gap-1">
-            <button
-              className="bg-gray-500 flex-1 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-              type="button"
-              onClick={resetForm}
-            >
-              Cancel
-            </button>
-            <button
-              className="bg-orange-500 flex-1 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-[32px] flex border-[2px] rounded-[12px] p-[16px] items-center w-full">
+              <img src={User.src} alt="" />
+              <input
+                className="appearance-none w-full outline-none px-3 text-[16px] text-[#87898E] leading-[24px] font-medium"
+                id="addressess"
+                name="addressess"
+                type="text"
+                value={walletAddresses}
+                onChange={handleWalletAddressesChange}
+                placeholder="Wallet addresses separated by commas"
+              />
+            </div>
+            <div className="flex items-center justify-between gap-4">
+              <button
+                className="flex-1 text-[#23262F] py-[20px] rounded-full focus:outline-none focus:shadow-outline"
+                type="button"
+                onClick={resetForm}
+              >
+                Cancel
+              </button>
+              <button
+                className="gradientBackground flex-1 hover:bg-orange-700 text-[#FCFCFD] py-[20px] rounded-full focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      ) : (
+        <div className="bg-white relative px-[32px] py-[24px] rounded-lg border w-[544px]">
+          <img
+            src={Cross.src}
+            alt=""
+            onClick={resetForm}
+            className="cursor-pointer absolute right-4 top-4"
+          />
+          <img src={Success.src} alt="" />
+        </div>
+      )}
     </div>
   );
 }
