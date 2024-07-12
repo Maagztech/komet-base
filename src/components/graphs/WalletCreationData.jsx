@@ -58,12 +58,12 @@ const WalletCreationData = () => {
         tension: 0.3,
         fill: true,
         backgroundColor: backgroundGradient,
-        pointRadius: 8, // Increased pointer size
-        pointBorderWidth: 2, // Increased pointer border width
-        pointHoverRadius: 10, // Increased pointer hover size
-        pointBackgroundColor: "#FFFFFF", // Pointer fill color white
+        pointRadius: 8,
+        pointBorderWidth: 2,
+        pointHoverRadius: 10,
+        pointBackgroundColor: "#FFFFFF",
         pointBorderColor: gradientFill,
-        pointHoverBackgroundColor: "#FFFFFF", // Pointer hover fill color white
+        pointHoverBackgroundColor: "#FFFFFF",
         pointHoverBorderWidth: 2,
       },
     ],
@@ -74,7 +74,7 @@ const WalletCreationData = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: false, // Hide the legend
+        display: false,
       },
       tooltip: {
         intersect: false,
@@ -83,66 +83,49 @@ const WalletCreationData = () => {
     },
     scales: {
       x: {
-        title: {
-          display: false, // Hide the x-axis title
+        display: true,
+        border: {
+          display: false,
         },
         grid: {
-          drawBorder: false,
-          drawOnChartArea: true, // Ensure grid lines are drawn
-          color: "rgba(3, 2, 41, 0.05)", // Horizontal grid lines color with opacity 5%
+          drawBorder: false, // Hide x-axis line
+          drawOnChartArea: false,
+          color: "rgba(3, 2, 41, 0.03)", // Adjusted to 5% opacity for grid lines
           drawTicks: false,
         },
         ticks: {
-          padding: 15, // 15px gap between x ticks and graph
+          display: true,
+          font: {
+            size: 12,
+          }, // Text with reduced opacity
+          padding: 20,
         },
       },
       y: {
-        display: false, // Hide the y-axis
+        display: true,
+        border: {
+          display: false,
+        },
+        grid: {
+          drawBorder: false, // Hide y-axis line
+          drawOnChartArea: true,
+          color: "rgba(3, 2, 41, 0.03)", // Adjusted to 5% opacity for grid lines
+          drawTicks: false,
+        },
+        ticks: {
+          display: true,
+          beginAtZero: true,
+          stepSize: 5000,
+          max: 12000,
+          padding: 25,
+        },
       },
     },
-    interaction: {
-      intersect: false,
-      mode: "index",
-    },
-    hover: {
-      mode: "index",
-      intersect: false,
-      onHover: function (event, chartElement) {
-        const chart = chartElement[0]?.chart;
-        if (chart) {
-          const ctx = chart.canvas.getContext("2d");
-          const x = chartElement[0].element.x;
-          const y = chartElement[0].element.y;
-          const topY = chart.chartArea.top;
-          
-          ctx.save();
-          ctx.beginPath();
-          ctx.setLineDash([5, 5]);
-          ctx.moveTo(x, topY);
-          ctx.lineTo(x, y);
-          ctx.strokeStyle = gradientFill;
-          ctx.lineWidth = 2;
-          ctx.stroke();
-          ctx.restore();
-        }
-      },
-    },
-    elements: {
-      line: {
-        borderWidth: 4,
-        fill: "start",
-      },
-      point: {
-        radius: 5,
-        hoverRadius: 7,
-      },
-    },
-    animation: false,
   };
 
   return (
     <div className="bg-white ml-[30px] p-[28px] rounded-md pb-[40px] w-full h-[408px] mb-[40px]">
-      <p className="font-semibold mb-[36px]">Wallet Created</p>
+      <p className="font-semibold">Wallet Created</p>
       <div style={{ position: "relative", height: "100%", width: "100%" }}>
         <Line data={data} options={options} />
       </div>

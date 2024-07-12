@@ -61,7 +61,7 @@ import("leaflet").then((obj) => L);
 // });
 
 const myIcon = L.icon({
-  iconUrl: "https://www.svgrepo.com/show/376955/map-marker.svg",
+  iconUrl: "/marker.svg",
   iconSize: [25, 41],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
@@ -69,11 +69,11 @@ const myIcon = L.icon({
 
 const WorldMapWithDots = () => {
   const countries = [
-    { name: "United States", coords: [37.0902, -95.7129] },
-    { name: "Brazil", coords: [-14.235, -51.9253] },
-    { name: "India", coords: [20.5937, 78.9629] },
-    { name: "Germany", coords: [51.1657, 10.4515] },
-    { name: "Australia", coords: [-25.2744, 133.7751] },
+    { name: "United States", coords: [37.0902, -95.7129], users: "20k" },
+    { name: "Brazil", coords: [-14.235, -51.9253], users: "20k" },
+    { name: "India", coords: [20.5937, 78.9629], users: "20k" },
+    { name: "Germany", coords: [51.1657, 10.4515], users: "20k" },
+    { name: "Australia", coords: [-25.2744, 133.7751], users: "20k" },
   ];
 
   if (typeof Window === undefined) return null;
@@ -92,7 +92,10 @@ const WorldMapWithDots = () => {
         />
         {countries.map((country, index) => (
           <Marker key={index} position={country.coords} icon={myIcon}>
-            <Popup>{country.name}</Popup>
+            <Popup>
+              <p className="text-black font-semibold">{country.name}</p>
+              <p className="text-black">Users: {country.users}</p>
+            </Popup>
           </Marker>
         ))}
       </MapContainer>

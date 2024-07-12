@@ -33,7 +33,7 @@ const TransactionVolume = () => {
           date.setDate(date.getDate() - (i + 1) * 7);
           const endDate = new Date(date);
           endDate.setDate(endDate.getDate() + 6);
-          return `${date.toLocaleDateString()} - ${endDate.toLocaleDateString()}`;
+          return `${endDate.toLocaleDateString()}`;
         }).reverse();
         dataPoints = Array.from({ length: 12 }, () =>
           Math.floor(Math.random() * 100)
@@ -68,30 +68,35 @@ const TransactionVolume = () => {
     }
 
     const gradient = document.createElement("canvas").getContext("2d");
-    const gradientFill1 = gradient.createLinearGradient(0, 0, 0, 450);
-    gradientFill1.addColorStop(0, "#F9654F");
-    gradientFill1.addColorStop(1, "#FF26E9");
+    const gradientFill = gradient.createLinearGradient(0, 0, 0, 450);
+    gradientFill.addColorStop(0, "#F9654F");
+    gradientFill.addColorStop(1, "#FF26E9");
+
+    const backgroundGradient = gradient.createLinearGradient(0, 0, 450, 0);
+    backgroundGradient.addColorStop(0, "rgba(94, 195, 255, 0.04)");
+    backgroundGradient.addColorStop(1, "rgba(253, 93, 239, 0.04)");
 
     const newData = {
       labels,
       datasets: [
         {
-          label: period,
+          // label: period,
           data: dataPoints,
+          borderWidth: 4,
+          tension: 0.3,
           fill: true,
-          backgroundColor: gradientFill1, // Gradient fill color
-          borderColor: "transparent", // Transparent border
-          tension: 0,
-          pointBackgroundColor: "transparent", // Transparent data point fill
-          pointBorderColor: "#FF26E9", // Border color for data points
-          pointHoverBackgroundColor: "#FFFFFF", // Hover color for data points
-          pointHoverRadius: 8, // Increase pointer size on hover
-          pointHoverBorderWidth: 3, // Hover border width
-          pointRadius: 6, // Default point size
+          borderColor: gradientFill,
+          backgroundColor: backgroundGradient,
+          pointRadius: 8,
+          pointBorderWidth: 2,
+          pointHoverRadius: 10,
+          pointBackgroundColor: "#FFFFFF",
+          pointBorderColor: gradientFill,
+          pointHoverBackgroundColor: "#FFFFFF",
+          pointHoverBorderWidth: 2,
         },
       ],
     };
-
     setData(newData);
   };
 
@@ -106,14 +111,22 @@ const TransactionVolume = () => {
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       y: {
         grid: {
-          color: "rgba(0, 0, 0, 0)", // Decrease opacity of Y-axis grid lines
+          drawBorder: false, // Hide y-axis line
+          drawOnChartArea: true,
+          color: "rgba(3, 2, 41, 0.03)", // Adjusted to 5% opacity for grid lines
+          drawTicks: false,
+        },
+        border: {
+          display: false,
         },
         beginAtZero: true,
         title: {
-          display: true,
+          display: false,
           text: "Volume USD",
           color: "#000000",
           font: {
@@ -126,11 +139,18 @@ const TransactionVolume = () => {
           beginAtZero: true,
           max: 100,
           stepSize: 20,
+          padding: 25,
         },
       },
       x: {
+        border: {
+          display: false,
+        },
         grid: {
           color: "rgba(0, 0, 0, 0)", // Decrease opacity of X-axis grid lines
+        },
+        ticks: {
+          padding: 20,
         },
       },
     },
@@ -141,13 +161,17 @@ const TransactionVolume = () => {
     },
   };
   return (
-    <div
-      className="bg-white ml-[30px] mb-[40px] p-[28px] rounded-md"
-      style={{ width: "calc(2/3 * 100vw - 8px)" }}
-    >
-      <div className="flex justify-between items-center">
-        <p className="font-semibold mb-4">Transaction Volume</p>
-        <div className="flex mb-2 gap-4">
+    <div className="bg-white ml-[30px] mb-[40px] p-[28px] pb-[40px] rounded-md h-[408px]">
+      <div className="flex justify-between items-start">
+        <div>
+          <p className="font-semibold mb-[8px]">Transaction Volume</p>
+          <p className="text-[13px] text-[#93A3AB] mb-[10px] leading-[16px] font-medium">
+            <span className="text-[#65C565] font-semibold">+3,4% </span>Past{" "}
+            {selectedPeriod}
+          </p>
+        </div>
+
+        <div className="flex gap-4 mr-[60px]">
           <button
             className={`${selectedPeriod === "Day" ? "gradientText" : ""}`}
             onClick={() => handlePeriodChange("Day")}
@@ -174,9 +198,7 @@ const TransactionVolume = () => {
           </button>
         </div>
       </div>
-      <div style={{ maxHeight: "450px", overflow: "auto" }}>
-        <Line data={data} options={options} />
-      </div>
+      <Line data={data} options={options} />
     </div>
   );
 };

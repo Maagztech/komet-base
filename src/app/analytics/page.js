@@ -8,7 +8,7 @@ import SmallCards from "@/components/SmallCards";
 import WalletCreationData from "@/components/graphs/WalletCreationData";
 import DesktopAlert from "@/components/Alert";
 import UserLast30Days from "@/components/graphs/UserLast30Days";
-import UserVisitsData from "@/components/graphs/UserVisitsData";
+import UserVisitsData from "@/components/graphs/TokenWorth";
 import VolumesByMarketPlace from "@/components/graphs/VolumeByMarketPlace";
 import VolumesByMarketPlace3 from "@/components/graphs/VolumesByMarketPlace3";
 import VolumesByMarketPlace4 from "@/components/graphs/VolumesByMarketPlace4";
@@ -44,8 +44,7 @@ export default function Analytics() {
                 </div>
                 <div className="flex">
                   <CountryPercentageChart />
-                  {typeof window !== 'undefined' &&
-                    <MapData />}
+                  <MapData />
                 </div>
               </div>) : (
               <div className="w-full h-full flex flex-col items-center justify-center">

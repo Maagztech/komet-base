@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import "chart.js/auto";
@@ -7,7 +6,7 @@ import Arrow from "@/assets/rightUpArrowGreen.svg";
 
 const CountryPercentageChart = () => {
   const percentages = [70, 55, 80, 60, 50]; // Example percentages for each country
-  const remainingPercentages = percentages.map(value => 100 - value); // Calculate the remaining percentages
+  const remainingPercentages = percentages.map((value) => 100 - value); // Calculate the remaining percentages
 
   const data = {
     labels: ["India", "United Kingdom", "Canada", "Australia", "Spain"],
@@ -22,16 +21,24 @@ const CountryPercentageChart = () => {
             return null;
           }
 
-          const gradient = ctx.createLinearGradient(
-            chartArea.left,
-            0,
-            chartArea.right,
-            0
-          );
-          gradient.addColorStop(0, "#F9654F");
-          gradient.addColorStop(1, "#FF26E9");
+          // Gradient for India
+          if (context.dataIndex === 0) {
+            const gradient = ctx.createLinearGradient(
+              chartArea.left,
+              0,
+              chartArea.right,
+              0
+            );
+            gradient.addColorStop(0, "#F9654F");
+            gradient.addColorStop(1, "#FF26E9");
 
-          return gradient;
+            return gradient;
+          } else {
+            // Solid colors for other countries
+            return ["#FF8473", "#FFDD64", "#00C2FF", "#D9E1FA"][
+              context.dataIndex - 1
+            ];
+          }
         },
         barPercentage: 1.0,
         categoryPercentage: 1.0,
@@ -40,7 +47,7 @@ const CountryPercentageChart = () => {
       {
         label: "Remaining",
         data: remainingPercentages,
-        backgroundColor: "black",
+        backgroundColor: "black", // Solid colors for "Remaining"
         barPercentage: 1.0,
         categoryPercentage: 1.0,
         barThickness: 4,
@@ -53,6 +60,9 @@ const CountryPercentageChart = () => {
     scales: {
       x: {
         stacked: true,
+        border: {
+          display: false,
+        },
         grid: {
           color: "rgba(0, 0, 0, 0)",
         },
@@ -63,6 +73,9 @@ const CountryPercentageChart = () => {
         },
       },
       y: {
+        border: {
+          display: false,
+        },
         stacked: true,
         grid: {
           color: "rgba(0, 0, 0, 0)",
@@ -77,7 +90,7 @@ const CountryPercentageChart = () => {
   };
 
   return (
-    <div className="bg-white ml-[30px] mb-[30px] p-[20px] rounded-md w-1/3">
+    <div className="bg-white ml-[30px] mb-[40px] p-[20px] rounded-md w-1/3">
       <p className="font-semibold">Users By Country</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
