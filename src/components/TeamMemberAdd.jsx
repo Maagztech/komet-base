@@ -8,7 +8,7 @@ export default function TeamMemberAdd({ isOpen, onClose }) {
   const { groupId } = useContext(DataContext);
   console.log("groupId", groupId);
   const [walletAddresses, setWalletAddresses] = useState("");
-  const [success, setSuccess] = useState(true);
+  const [success, setSuccess] = useState(false);
   const handleWalletAddressesChange = (event) => {
     setWalletAddresses(event.target.value);
   };
