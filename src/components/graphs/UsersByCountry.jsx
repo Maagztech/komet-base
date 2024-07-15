@@ -5,7 +5,7 @@ import ExportArrow from "@/assets/downarrow.svg";
 import Arrow from "@/assets/rightUpArrowGreen.svg";
 
 const CountryPercentageChart = () => {
-  const percentages = [70, 55, 80, 60, 50];
+  const percentages = [31, 27, 17, 10, 6];
   const remainingPercentages = percentages.map((value) => 100 - value);
 
   const data = {
@@ -41,6 +41,19 @@ const CountryPercentageChart = () => {
         barPercentage: 1.0,
         categoryPercentage: 1.0,
         barThickness: 4,
+        datalabels: {
+          anchor: "end",
+          align: "end",
+          offset: -5,
+          formatter: (value, context) => {
+            return `${value}%`;
+          },
+          color: (context) => context.dataset.backgroundColor,
+          font: {
+            size: 12,
+            weight: "bold",
+          },
+        },
       },
       {
         label: "Remaining",
@@ -57,28 +70,24 @@ const CountryPercentageChart = () => {
     indexAxis: "y",
     scales: {
       x: {
+        display: false, // Hide x-axis ticks
         stacked: true,
-        border: {
-          display: false,
-        },
         grid: {
-          color: "rgba(0, 0, 0, 0)",
-        },
-        ticks: {
-          callback: (value) => `${value}%`,
-          beginAtZero: true,
-          max: 100,
+          display: false, // Hide x-axis grid lines
         },
       },
       y: {
+        stacked: true,
+        grid: {
+          display: false, // Hide y-axis grid lines
+        },
         border: {
           display: false,
         },
-        stacked: true,
-        grid: {
-          color: "rgba(0, 0, 0, 0)",
-        },
         ticks: {
+          callback: (value, index) => {
+            return `${data.labels[index]} (${percentages[index]}%)`; // Show percentages next to country names
+          },
           crossAlign: "far",
         },
       },

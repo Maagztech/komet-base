@@ -14,7 +14,9 @@ const SmallCards = () => {
           Wallets Created
         </p>
         <div className="flex items-center justify-between">
-          <h5 className="font-bold text-[16px] leading-[24px]">{totalUsers}</h5>
+          <h5 className="font-bold text-[16px] leading-[24px]">
+            {totalUsers.toLocaleString()}
+          </h5>
           <div
             style={{ letterSpacing: "-2%" }}
             className="leading-[16px] font-medium bg-[#E3F4E3] text-[11.58px] px-[5px] text-[#65C565] py-[4px] rounded-full"
@@ -65,7 +67,9 @@ const SmallCards = () => {
           Last 24 hour users
         </p>
         <div className="flex items-center justify-between">
-          <h5 className="font-bold text-[16px] leading-[24px]">{h24User}</h5>
+          <h5 className="font-bold text-[16px] leading-[24px]">
+            {h24User.toLocaleString()}
+          </h5>
         </div>
       </div>
     </div>

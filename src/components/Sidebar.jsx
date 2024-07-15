@@ -63,7 +63,7 @@ const Sidebar = () => {
               rel="noopener noreferrer"
             >
               <img src={Launchpad.src} alt="" className="h-[24px] w-[24px]"/>
-              <p style={{ letterSpacing: "-1%" }}>Lunchpad</p>
+              <p style={{ letterSpacing: "-1%" }}>Launchpad</p>
             </a>
           </li>
 
