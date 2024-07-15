@@ -64,7 +64,8 @@ const TransactionPerformed = () => {
     layout: {
       padding: {
         top: 20, // Adjust top padding as needed
-        bottom: 20, // Adjust bottom padding as needed
+        bottom: 20,
+        right: 40, // Adjust bottom padding as needed
       },
     },
     scales: {
@@ -89,7 +90,7 @@ const TransactionPerformed = () => {
         ticks: {
           callback: (value) => `${value}K`,
           beginAtZero: true,
-          padding: 25,
+          padding: 10,
         },
         border: {
           display: false,

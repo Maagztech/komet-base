@@ -5,8 +5,8 @@ import ExportArrow from "@/assets/downarrow.svg";
 import Arrow from "@/assets/rightUpArrowGreen.svg";
 
 const CountryPercentageChart = () => {
-  const percentages = [70, 55, 80, 60, 50]; // Example percentages for each country
-  const remainingPercentages = percentages.map((value) => 100 - value); // Calculate the remaining percentages
+  const percentages = [70, 55, 80, 60, 50];
+  const remainingPercentages = percentages.map((value) => 100 - value);
 
   const data = {
     labels: ["India", "United Kingdom", "Canada", "Australia", "Spain"],
@@ -21,7 +21,6 @@ const CountryPercentageChart = () => {
             return null;
           }
 
-          // Gradient for India
           if (context.dataIndex === 0) {
             const gradient = ctx.createLinearGradient(
               chartArea.left,
@@ -34,7 +33,6 @@ const CountryPercentageChart = () => {
 
             return gradient;
           } else {
-            // Solid colors for other countries
             return ["#FF8473", "#FFDD64", "#00C2FF", "#D9E1FA"][
               context.dataIndex - 1
             ];
@@ -47,7 +45,7 @@ const CountryPercentageChart = () => {
       {
         label: "Remaining",
         data: remainingPercentages,
-        backgroundColor: "black", // Solid colors for "Remaining"
+        backgroundColor: "black",
         barPercentage: 1.0,
         categoryPercentage: 1.0,
         barThickness: 4,
@@ -80,6 +78,9 @@ const CountryPercentageChart = () => {
         grid: {
           color: "rgba(0, 0, 0, 0)",
         },
+        ticks: {
+          crossAlign: "far",
+        },
       },
     },
     plugins: {
@@ -90,7 +91,7 @@ const CountryPercentageChart = () => {
   };
 
   return (
-    <div className="bg-[white] ml-[30px] mb-[40px] p-[20px] rounded-l-[10px] w-1/3 border-r-[0.6px] border-[#0B1739]">
+    <div className="bg-[white] ml-[30px] mb-[40px] p-[28px] rounded-l-[10px] w-1/3 border-r-[0.6px] border-[#0B1739]">
       <p className="font-normal text-[#1B192B]">Users By Country</p>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
@@ -100,12 +101,6 @@ const CountryPercentageChart = () => {
             <img src={Arrow.src} alt="" />
           </div>
         </div>
-        {/* <div>
-          <div className="flex gap-1 items-center py-2 px-2 rounded bg-black text-white">
-            Export
-            <img src={ExportArrow.src} alt="" />
-          </div>
-        </div> */}
       </div>
       <Bar data={data} options={options} height={300} />
     </div>

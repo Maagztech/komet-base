@@ -33,17 +33,13 @@ const Sidebar = () => {
           Connect Wallet
         </div>
       ) : (
-        <>
-          <div
-            className="gradientBackground flex items-baseline gap-2 justify-center h-[33px] text-[14px] leading-[16.71px] text-white font-bold my-3 p-[8px] rounded mr-[40px]"
-            onClick={(e) => setShow(!show)}
-          >
-            <FaUser />
-            <p>
-              {userData.username || String(userData.email).substring(0, 12)}{" "}
-            </p>
-          </div>
-        </>
+        <div
+          className="gradientBackground inline-block text-[14px] leading-[16.71px] text-white font-bold my-3 p-[8px] rounded"
+          // onClick={(e) => setShow(!show)}
+        >
+          {/* <FaUser /> */}
+          <p>{userData.username || String(userData.email).substring(0, 12)} </p>
+        </div>
       )}
       <nav className="mt-[32px]">
         <ul className="sidebarul text-black">
