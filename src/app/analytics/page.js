@@ -30,7 +30,7 @@ export default function Analytics() {
       {userData?.address ? (
         <div className="flex max-h-screen">
           <Sidebar />
-          <div className="flex-1 overflow-y-scroll overflow-x-hidden">
+          <div className="flex-1 overflow-y-scroll overflow-x-hidden pr-[48px]">
             <ShowUserName />
             {showData ? (
               <div>
@@ -38,11 +38,11 @@ export default function Analytics() {
                 <WalletCreationData />
                 <TransactionPerformed />
                 <TransactionVolume />
-                <div className="flex flex-1">
+                <div className="flex flex-1 mr-[33px] w-full">
                   <TotalMintData />
                   <UserVisitsData />
                 </div>
-                <div className="flex">
+                <div className="flex mr-[33px] w-full">
                   <CountryPercentageChart />
                   <MapData />
                 </div>

@@ -161,7 +161,7 @@ const TransactionVolume = () => {
     },
   };
   return (
-    <div className="bg-white ml-[30px] mb-[40px] p-[28px] pb-[70px] rounded-[10px] h-[408px]">
+    <div className="bg-white ml-[30px] mb-[40px] p-[28px] pb-[70px] rounded-[10px] h-[408px] w-full">
       <div className="flex justify-between items-start">
         <div>
           <p className="font-semibold mb-[8px]">Transaction Volume</p>
