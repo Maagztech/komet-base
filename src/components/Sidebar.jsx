@@ -50,7 +50,7 @@ const Sidebar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Infra.src} alt="" />
+              <img src={Infra.src} alt="" className="h-[24px] w-[24px]"/>
               <p style={{ letterSpacing: "-1%" }}>Infra</p>
             </a>
           </li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Launchpad.src} alt="" />
+              <img src={Launchpad.src} alt="" className="h-[24px] w-[24px]"/>
               <p style={{ letterSpacing: "-1%" }}>Lunchpad</p>
             </a>
           </li>
@@ -74,7 +74,7 @@ const Sidebar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Dropz.src} alt="" />
+              <img src={Dropz.src} alt="" className="h-[24px] w-[24px]"/>
               <p style={{ letterSpacing: "-1%" }}>Dropz</p>
             </a>
           </li>
@@ -86,7 +86,7 @@ const Sidebar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Dropzone.src} alt="" />
+              <img src={Dropzone.src} alt="" className="h-[24px] w-[24px]"/>
               <p style={{ letterSpacing: "-1%" }}>Dropzone</p>
             </a>
           </li>
@@ -106,7 +106,7 @@ const Sidebar = () => {
               logoutFromKomet();
             }}
           >
-            <img src={Logout.src} alt="" />
+            <img src={Logout.src} alt="" className="h-[24px] w-[24px]"/>
             <p style={{ letterSpacing: "-1%" }}>Logout</p>
           </li>
         </ul>
