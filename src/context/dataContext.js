@@ -58,7 +58,6 @@ export const DataContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get("https://sdk.komet.me/komet-base/location/24-hour-user-count?partnerId=" + groupId);
-            console.log("usercount", res);
             setH24Users(res?.data?.user_count);
         }
         if (groupId) {
