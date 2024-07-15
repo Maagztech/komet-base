@@ -32,7 +32,7 @@ export const DataContextProvider = ({ children }) => {
     const [showInvite, setShowInvite] = useState(false);
     const [walletaddress, setWalletAddress] = useState(userData?.address || "");
     const [groupName, setGroupName] = useState("");
-    const [groupId, setGroupId] = useState();
+    const [groupId, setGroupId] = useState(null);
     const [h24User, setH24Users] = useState(0);
     const FindDateSpecificUsersCount = async () => {
         try {
@@ -54,6 +54,16 @@ export const DataContextProvider = ({ children }) => {
         setWalletAddress(userData?.address);
         console.log("userData", userData)
     }, [userData])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await axios.get("https://sdk.komet.me/komet-base/location/24-hour-user-count?partnerId=" + groupId);
+            setH24Users(res?.data?.user_count || 0);
+        }
+        if (groupId) {
+            fetchData();
+        }
+    }, [groupId])
 
     useEffect(() => {
         const fetchData = async () => {
