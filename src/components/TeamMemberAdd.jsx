@@ -78,7 +78,7 @@ export default function TeamMemberAdd({ isOpen, onClose }) {
             </div>
 
             <button
-              className="w-full gradientBackground hover:bg-orange-700 text-[#FFFFFF] py-[11.5PX] rounded-[4px] focus:outline-none focus:shadow-outline font-semibold"
+              className="w-full text-[14px] leading-[16.71px] gradientBackground hover:bg-orange-700 text-[#FFFFFF] py-[11.5PX] rounded-[4px] focus:outline-none focus:shadow-outline font-semibold"
               type="submit"
             >
               Request Access
