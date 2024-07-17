@@ -1,0 +1,21 @@
+<svg width="401" height="191" viewBox="0 0 401 191" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_19220_26373" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="401" height="191">
+<rect x="0.214844" y="0.5" width="400" height="190" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_19220_26373)">
+<g opacity="0.4">
+<ellipse cx="197.207" cy="191.25" rx="347" ry="188" transform="rotate(-180 197.207 191.25)" fill="url(#paint0_radial_19220_26373)"/>
+<path d="M-149.293 191.25C-149.293 139.606 -110.649 92.7387 -47.9209 58.7535C14.7874 24.7791 101.452 3.75002 197.207 3.75003C292.962 3.75004 379.627 24.7791 442.335 58.7536C505.063 92.7387 543.707 139.606 543.707 191.25C543.707 242.894 505.063 289.761 442.335 323.746C379.627 357.721 292.962 378.75 197.207 378.75C101.452 378.75 14.7874 357.721 -47.9209 323.746C-110.649 289.761 -149.293 242.894 -149.293 191.25Z" stroke="url(#paint1_linear_19220_26373)" stroke-opacity="0.08"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_19220_26373" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(197.199 493.5) rotate(-90) scale(260.5 400.33)">
+<stop stop-color="#FF32CF"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint1_linear_19220_26373" x1="730.946" y1="181.355" x2="-236.195" y2="181.355" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F9654F"/>
+<stop offset="1" stop-color="#FF26E9"/>
+</linearGradient>
+</defs>
+</svg>
