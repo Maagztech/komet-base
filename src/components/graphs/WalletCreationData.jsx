@@ -52,7 +52,7 @@ const WalletCreationData = () => {
     labels: aggregatedData.months,
     datasets: [
       {
-        data: [100, 200, 300, 90, 100, 120, 170, 60, 100, 200, 300],
+        data: [1000, 2000, 3000, 900, 1000, 1400, 1700, 600, 1000, 2000, 3000],
         // aggregatedData.counts,
         borderColor: gradientFill,
         borderWidth: 4,

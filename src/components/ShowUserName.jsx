@@ -14,10 +14,10 @@ const ConnectWallet = () => {
           <img
             src={Bharatbox.src}
             alt=""
-            className="ml-[30px] my-2 h-[100px] w-[150px] object-cover object-center"
+            className="ml-[30px] my-2 h-[100px] w-[190px] object-cover object-center"
           />
           <p
-            className="mt-[10px] mb-[10px] ml-[30px] text-[20px] leading-[24px] font-medium"
+            className="mt-[25px] mb-[10px] ml-[30px] text-[20px] leading-[24px] font-medium"
             style={{ letterSpacing: "-3%" }}
           >
             Dashboard
