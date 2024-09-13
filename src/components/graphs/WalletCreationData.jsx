@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
-import { Line } from "react-chartjs-2";
 import { DataContext } from "@/context/dataContext";
 import "chart.js/auto";
+import { useContext, useEffect, useState } from "react";
+import { Line } from "react-chartjs-2";
 
 const WalletCreationData = () => {
   const { users } = useContext(DataContext);
@@ -52,7 +52,8 @@ const WalletCreationData = () => {
     labels: aggregatedData.months,
     datasets: [
       {
-        data: aggregatedData.counts,
+        data: [100, 200, 300, 90, 100, 120, 170, 60, 100, 200, 300],
+        // aggregatedData.counts,
         borderColor: gradientFill,
         borderWidth: 4,
         tension: 0.3,

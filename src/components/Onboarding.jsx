@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useContext } from "react";
-import { GoogleLogin } from "@react-oauth/google";
-import { UserContext } from "@/context/userContext";
-import GoogleLoginIcon from "@/assets/kometButton.svg";
 import Komet from "@/assets/kometBaseLogo.svg";
+import GoogleLoginIcon from "@/assets/kometButton.svg";
 import Power from "@/assets/poweredKomet.svg";
 import Bg from "@/assets/signInBg.svg";
+import { UserContext } from "@/context/userContext";
+import { GoogleLogin } from "@react-oauth/google";
+import { useContext } from "react";
 const Onboarding = () => {
   const { getEmail, userData } = useContext(UserContext);
 
