@@ -1,8 +1,8 @@
 "use client";
-import React, { useContext } from "react";
 import { DataContext } from "@/context/dataContext";
+import { useContext } from "react";
 const SmallCards = () => {
-  const { totalUsers, givenDateUsers, h24User } = useContext(DataContext);
+  const { totalUsers, h24User } = useContext(DataContext);
 
   return (
     <div className="flex justify-start ml-[30px] overflow-auto mb-[24px]">
